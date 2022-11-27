@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <!-- <audio src="./page-flip-01a.wav" id="audio" autostart></audio> -->
+    <main id="ebook">
+        <div id="ebook-top">
+            <span style="margin: 10px;text-align: center;">Toplam Sayfalar: <span id="total-page"></span></span>
+            <div class="menu-con">
+                <i id="first-btn" class="fas fa-angle-double-left" style="cursor: pointer" onclick="firstPage()"></i>
+                <div>
+                    <input type="number" id="search-txt" min="0" value="0" placeholder="Sayfa numarasi?" class="menu-items">
+                    <i class="fas fa-search fa-2x" id="search-btn" style="cursor: pointer" onclick="search()"></i>
+                </div>
+                <i id="last-btn" class="fas fa-angle-double-right" style="cursor: pointer" onclick="lastPage()"></i>
+            </div>
+        </div>
+        <div id="ebook-bottom">
+            <button id="prev-btn">
+                <i class="fas fa-arrow-circle-left"></i>
+            </button>
+        
+            <!-- The Book -->
+            <div id="book" class="book">
+                <!-- Paper 1 -->
+                <div id="p0" class="paper">
+                    <div class="front">
+                        <div id="f0" class="front-content pages">
+                            
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b0" class="back-content pages">
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Paper 2 -->
+                <div id="p1" class="paper">
+                    <div class="front">
+                        <div id="f1" class="front-content pages">
+                            
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b1" class="back-content pages">
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Paper 3 -->
+                <div id="p2" class="paper">
+                    <div class="front">
+                        <div id="f2" class="front-content pages">
+                           
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div id="b2" class="back-content pages">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <button id="next-btn">
+                <i class="fas fa-arrow-circle-right"></i>
+            </button>
+        </div>
+    </main>
+
+    <script defer src="./main.js"></script>
+</body>
+</html>

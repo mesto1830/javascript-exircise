@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2 id="title">Api Fetch Promise With Class Request</h2>
+<!-- script side----------------------------- -->
+  <script>
+//sample 3 fetch promise class
+    class Request {
+      getApiRequest(url){
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          console.log('Fetch Promise With Class ----------------------')
+          data[0].results.forEach(item => {
+            console.log(item.home.name)
+          })
+        })
+        .catch(err => console.log(err))
+      }
+    }
+//call and create class
+    const result = new Request()
+    result.getApiRequest('../soccer.json')
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="text" name="" id="name" />
+    <input type="text" name="" id="lastname" />
+    <button id="btn">Factory Basic</button>
+    <script>
+      const $ = (param) => document.querySelector(param);
+
+      //factory basic
+      function person(name, lastname) {
+        return {
+          name,
+          lastname,
+          fullName() {
+            return name + " " + lastname;
+          },
+        };
+      }
+
+      $("#btn").onclick = (e) => {
+        const per1 = person($("#name").value, $("#lastname").value);
+        console.log(per1.fullName());
+      };
+    </script>
+  </body>
+</html>

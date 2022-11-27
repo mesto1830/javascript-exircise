@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form  method="get">
+    <input type="email" name="email" required placeholder="With Submit Form">
+    <input type="submit"  value="Send">
+  </form>
+  <br><span>With Javascript</span><br>
+  <input type="email" id="email" required placeholder="Without Submit Form">
+  <input type="submit" id="send" value="Send">
+
+  <script>
+   document.getElementById('send').addEventListener('click', () => {
+     const email = document.getElementById('email').value
+     let pattern = /([^ ]+)@([^ ]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/
+     email.match(pattern) ? console.log(email) : console.log('Pattern not match!')
+   })
+  </script>
+</body>
+</html>

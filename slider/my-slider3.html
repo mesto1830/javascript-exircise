@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 840px;
+        height: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 50px auto;
+        object-fit: cover;
+        padding: 5px;
+      }
+      #wrapper {
+        display: flex;
+        align-items: center;
+        min-width: 100%;
+        width: auto;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        scroll-behavior: smooth;
+      }
+      .img {
+        min-width: 828px;
+        height: 100%;
+      }
+      .prev,
+      .next {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        cursor: pointer;
+        color: #000;
+        font-weight: bold;
+        font-size: 30px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background-color: #f1f1f1;
+      }
+      .prev:hover,
+      .next:hover {
+        transform: scale(1.2);
+      }
+      .active {
+        transform: scale(1.2);
+        transition: all 1s linear;
+        transition-delay: 1s;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <a class="prev" id="prev">❮</a>
+      <div id="wrapper"></div>
+      <a class="next" id="next">❯</a>
+    </div>
+    <div>
+    </div>
+
+    <script>
+      let images = [
+        "./images/img1.jpg",
+        "./images/img2.jpg",
+        "./images/img3.jpg",
+        "./images/img4.jpg",
+      ];
+
+      const setSlider = (param) => {
+        param.forEach((item, index) => {
+          document.getElementById('wrapper').innerHTML += `
+          <img src="${item}" alt="" id="${index}" class="img"/>
+          `
+        });
+        const imageWidht = document.getElementsByClassName('img')[0].width
+        const imageInterval = setInterval(() => {
+          document.getElementById('wrapper').scrollLeft += Number(imageWidht)
+          document.getElementById('wrapper').classList.remove('active')
+          if(document.getElementById('wrapper').scrollLeft == 3*Number(imageWidht)){
+            document.getElementById('wrapper').scrollLeft = 0
+          }
+          document.getElementById('wrapper').classList.add('active')
+        }, 3000);
+        document.getElementById('next').addEventListener('click', () => {
+          document.getElementById('wrapper').scrollLeft += Number(imageWidht)
+          stopInetval()
+        })
+        document.getElementById('prev').addEventListener('click', () => {
+          document.getElementById('wrapper').scrollLeft -= Number(imageWidht)
+          stopInetval()
+        })
+        const stopInetval = () => {
+          clearInterval(imageInterval)
+        }
+      }
+      setSlider(images)
+    </script>
+  </body>
+</html>

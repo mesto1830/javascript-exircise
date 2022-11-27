@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //global
+        const regex = /done/g;
+        const str = `start done start done`;
+        let result;
+        if ((result = regex.exec(str)) !== null) {
+            result.forEach((match, groupIndex) => {
+                result.push(match);
+            });
+        }
+        console.log(regex.exec(str))
+        console.log(result)
+        console.log('--------------------------------------------')
+
+        //get first match
+        const regex2 = /done/;
+        const str2 = `start done start done`;
+        let result2;
+        if ((result2 = regex2.exec(str)) !== null) {
+            result2.forEach((match, groupIndex) => {
+               console.log(match)
+            });
+        }
+        console.log(regex2.exec(str))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // convert timestamp(miliseconds) to date
+    let d = new Date()
+    console.log(d)
+    console.log(d.getTime())
+    let result = new Date(d.getTime())
+    console.log('Local Format ' + result.toLocaleDateString())
+    console.log(`Custom Format ${result.getFullYear()}/${result.getMonth()+1}/${result.getDate()}`)
+  </script>
+</body>
+
+</html>

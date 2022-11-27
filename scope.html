@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    //global scope
+    var value1 = 10
+    let value2 = 20
+    const value3 = 30
+    console.log('Global Scope: var value1: ' + value1)
+    console.log('Global Scope: let value2: ' + value2)
+    console.log('Global Scope: const value3: ' + value3)
+    console.log('--------------------------------')
+    
+    //function scope
+    const func = () => {
+      var value1 = 60
+      let value2 = 80
+      const value3 = 90
+      console.log('Function Scope var value1 changed: ' + value1)
+      console.log('Function Scope: let value2: ' + value2)
+      console.log('Function Scope: const value3: ' + value3)
+      console.log('--------------------------------')
+    }
+    func()
+
+    //block scope var value1 changed
+    if(true){
+      var value1 = 50
+      let value2 = 60
+      const value3 = 70
+      console.log('Var value1 changed: ' + value1)//var like global scope
+      console.log('Let value2 not changed: ' + value2)//error because let block scope
+      console.log('Const value3 not changed : ' + value3)//error because const block scope
+      console.log('--------------------------------')
+    }
+
+ //block scope
+    if(true){
+      var a = 100
+      let b = 200
+      const c = 300
+    }
+
+    console.log('Var Not a Block scope: ' + a)//success because var not block scope
+    console.log('Let a Block scope: ' + b)//error because let block scope
+    console.log('Const a Block scope: ' + c)//error because const block scope
+    console.log('--------------------------------')
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h1{font-size: 30px;}
+  </style>
+</head>
+<body>
+  <h1 style="font-size:60px;" id="h1">Sample Text</h1>
+  <span>Computed Style</span>
+  <script>
+    const h1Size = parseInt(window.getComputedStyle(document.querySelector('h1')).getPropertyValue('font-size'))
+    document.querySelector('span').style.fontSize = h1Size / 2 + 'px'
+
+    //or
+    // document.querySelector('span').style.fontSize = document.getElementById('h1').style.fontSize.slice(0,this.length-2) / 2 +'px'
+  </script>
+</body>
+</html>

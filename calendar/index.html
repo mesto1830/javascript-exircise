@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+  <div id="container">
+<!-- header -->
+    <div id="header">
+      <div id="month-display"></div>
+      <div>
+        <input type="button" id="back" class="calendar-btn" value="Back">
+        <input type="button" id="next" class="calendar-btn" value="Next">
+      </div>
+    </div>
+
+<!-- display weekdays -->
+    <div id="weekdays">
+      <div>Sun</div>
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thur</div>
+      <div>Fri</div>
+      <div>Sat</div>
+    </div>
+
+<!-- calendar -->
+    <div id="calendar"></div>
+  </div>
+
+<!-- add event -->
+  <div id="event-model" style="display:none;">
+    <div id="event-model-inside">
+      <h2>New Event</h2>
+      <input type="text" id="event-title" placeholder="Event Ttitle">
+      <div>
+        <input type="button" id="save" class="calendar-btn" value="Save">
+        <input type="button" id="cancel" class="calendar-btn" value="Cancel">
+      </div>
+    </div>
+  </div>
+  
+<!-- delete event -->
+  <div id="delete-model" style="display:none;">
+    <div id="delete-model-inside">
+      <h2>Delete Event</h2>
+      <label for="" id="event-text"></label>
+      <div>
+        <input type="button" id="delete" class="calendar-btn" value="Delete">
+        <input type="button" id="close" class="calendar-btn" value="Close">
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

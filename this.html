@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+     function test() {
+       console.log(this)//this refer to lexical scop(window)
+     }
+     test()
+
+     const person = {
+       name:'Mesto',
+       message() {
+         return this//refer to person object
+       }
+     }
+     console.log(person.message())
+
+     //with arrow function 
+     const person2 = {
+       name:'Mesto',
+       message: () => {
+         return this//this refer to lexical scop(window)
+       }
+     }
+     console.log(person2.message())
+
+     //with self
+     const person3 = {
+       name:'Mesto',
+       message() {
+         var self = this
+         return self//refer to person object
+       }
+     }
+     console.log(person3.message())
+    </script>
+  </body>
+</html>

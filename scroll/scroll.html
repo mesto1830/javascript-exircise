@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{min-height: 800px;}
+    #go-top{
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Scroll</h2>
+  <span id="go-top">Go Top</span>
+  <script>
+    // window.onscroll = () => {
+    //   if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
+    //    console.log('Hello')
+    //    document.documentElement.scrollTop = 0
+    //   }
+    // }
+    //or with addeventlistener
+    // window.addEventListener('scroll', () => {
+    //   if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
+    //    console.log('Hello')
+    //   }
+    // })
+
+    // or with pageOffset
+    // window.onscroll = () => {
+    //   if(window.pageYOffset > 100){
+    //    console.log('Hello')
+    //    document.documentElement.scrollTop = 0
+    //   }
+    // }
+
+    //or with scrollY
+    // window.onscroll = () => {
+    //   if(window.scrollY > 100){
+    //    console.log('Hello')
+    //    document.documentElement.scrollTop = 0
+    //   }
+    // }
+
+    // document.getElementById('go-top').addEventListener('click', () => {
+    //   document.documentElement.scrollTop = 0
+    // })
+    
+  </script>
+</body>
+</html>

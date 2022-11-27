@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    const regex = /[^ ]+@[^ ]+\.[a-z]+$/g;
+    const str = `mesto-_/@1830@outlook.com.tr`;
+    let result = []
+    let result2 = ''
+    while ((i = regex.exec(str)) !== null) {
+      if (i.index === regex.lastIndex) {
+        regex.lastIndex++;
+      }
+      i.forEach(item => {
+        result.push(item)
+        result2 += item
+      });
+    }
+    console.log(result)
+    console.log(result2)
+    console.log(regex.exec(str))
+    if(str.match(regex)){
+      console.log('Matched')
+    }
+    // let t = regex.exec(str)[0]
+    // if(t === 'afa'){
+    //   alert('yes')
+    // }
+  </script>
+</body>
+
+</html>

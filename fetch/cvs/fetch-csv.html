@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="" alt="" id="img" width="480">
+
+  <script>
+    //or async
+    const getCsv = async() => {
+      try {
+        const result = await fetch('./weather.csv')
+        const final = await result.text()
+        console.log(final)
+        //split rows
+        const firstRow = final.split('\n').slice(0,1)//get first row
+        console.log(firstRow)
+
+        const splitCsv = final.split('\n').slice(1)//get rows after first
+        splitCsv.forEach(item => {
+          const row = item.split(',')//split columns
+          const year = row[0]
+          const city = row[1]
+          const state = row[2]
+          const avgTemp = row[3]
+          const maxTemp = row[4]
+          const minTemp = row[5]
+          console.log(year, city, state, avgTemp, maxTemp, minTemp)
+        })
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    getCsv()
+  </script>
+</body>
+</html>

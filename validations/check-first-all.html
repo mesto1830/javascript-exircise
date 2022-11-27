@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" placeholder="name" class="input">
+  <input type="text" placeholder="lastname" class="input">
+  <input type="button" id="send" value="Send">
+  <script>
+    document.getElementById('send').addEventListener('click', () => {
+      let state = true
+      document.querySelectorAll('input[type=text]').forEach(item  => {
+        !item.value.match(/^[a-zA-z].*/) ? state = false : null//check the values are string or not
+      })
+      state ? alert('Success') : alert('Failed')
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let xhr = new XMLHttpRequest()
+    xhr.open('get', './book.xml', true)
+    xhr.onload = function () {
+      if (this.status === 200) {
+        console.log(this.responseXML)
+        const result = this.responseXML
+        let book = []
+        const final = result.getElementsByTagName("book")
+        for (let i = 0; i < final.length; i++) {
+          book.push({
+            author: final[i].getElementsByTagName('author')[0].childNodes[0].nodeValue,
+            title: final[i].getElementsByTagName('title')[0].childNodes[0].nodeValue,
+            genre: final[i].getElementsByTagName('genre')[0].childNodes[0].nodeValue,
+            price: final[i].getElementsByTagName('price')[0].childNodes[0].nodeValue,
+            publish_date: final[i].getElementsByTagName('publish_date')[0].childNodes[0].nodeValue,
+            description: final[i].getElementsByTagName('description')[0].childNodes[0].nodeValue
+          }
+          )
+        }
+        console.log(book)
+        book.forEach(item => {
+          console.log(item.title)
+        })
+      }
+    }
+    xhr.send()
+  </script>
+</body>
+
+</html>

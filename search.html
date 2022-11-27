@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    //search in string
+    let source = 'mesto is software worker mesto'
+
+    let inc = source.includes('mesto')
+    let mc = source.match('mesto')
+    let sr = source.search('mesto')
+    let ind = source.indexOf('mesto')
+
+    console.log(inc)
+    console.log(mc[0])
+    console.log(sr)
+    console.log(ind)
+
+    //search in array
+    let source1 = ['html', 'css', 'javascript', 'python']
+
+    let inc1 = source.includes('css')
+    let ind1 = source.indexOf('css')
+    let fd1 = source.find(item => item == 'css')
+
+    console.log(inc1)
+    console.log(ind1)
+    console.log(fd1)
+  </script>
+</body>
+
+</html>

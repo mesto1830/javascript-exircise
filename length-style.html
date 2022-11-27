@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p style="width: 600px; margin:50px;">
+    The API reference documentation provides detailed information about a function or object in Node.js.
+    This documentation indicates what arguments a method accepts, the return value of that method,
+    and what errors may be related to that method. It also indicates which methods are available for
+    different versions of Node.js.This documentation describes the built-in modules provided by Node.js.
+    It does not document modules provided by the community.
+  </p>
+  
+  <script>
+    const par = document.querySelector('p')
+    par.innerHTML = par.innerText.split(' ')
+    .map(item => item.length > 8 ? `<span style="color:red;">${item}</span>` : item).join(' ')
+
+   //old version
+    // let coloredText = []
+    // for (const item of par.innerText.split(' ')) {
+    //   if(item.length > 8){
+    //     coloredText.push(`<span style="color:red;">${item}</span>`)
+    //   } else {
+    //     coloredText.push(item)
+    //   }
+    // }
+    // par.innerHTML = coloredText.join(' ')
+  </script>
+</body>
+
+</html>

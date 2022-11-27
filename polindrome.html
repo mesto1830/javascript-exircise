@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    //Sayı ve harflerin tersten okunuşu da aynı olan cümle
+    const polindrome = (param) => {
+      let result = param.split('').reverse().join('')
+      if (result === param) {
+        return result
+      }
+      return 'Not match!'
+    }
+
+    console.log(polindrome('mesto'))
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //sync-blog
+      console.log('-------------------------------Sync-Block')
+      console.log('start')//first
+      for (let i = 0; i < 100; i++) {//second
+        console.log(i);
+      }
+      console.log('finish');//third
+
+      //async-block
+      //to make a async-block function in javascript we use settimeout  
+      console.log('-------------------------------Async-Block')
+      console.log('start')//first
+      setTimeout(() => {
+        for (let i = 0; i < 100; i++) {//third
+          console.log(i);
+        }
+      }, 0);
+      console.log('finish');//second
+
+      //not:But in nodejs we need async-wait-block to make sync-block, because nodejs is pre-async-block
+    </script>
+  </body>
+</html>

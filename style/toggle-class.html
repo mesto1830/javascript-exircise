@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #list{
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      width:200px;
+    }
+    .list{
+      border:1px solid #ccc;
+      border-radius:2px;
+      margin:3px 0;
+      padding:5px;
+    }
+    .hide-class{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="title">Toggle Class</h2>
+  <button onclick="toggleClass()">Hide / Show</button>
+  <ul id="list">
+    <!-- dynamic side -->
+  </ul>
+<!-- script side----------------------------- -->
+  <script>
+    let users = ['Html','Css','Javascript','NodeJs','vueJs','NuxtJs','Mysql','Mongodb']
+    userlist = () => {
+      users.forEach(item => {
+        document.getElementById('list').innerHTML += `
+        <li class="list">${item}</li>`
+      })
+    }
+   userlist()
+  //style list----------------------------------
+  let toggleClass = () => {
+    document.querySelectorAll('.list').forEach(item => {
+      item.classList.toggle('hide-class')
+    })
+   }
+  </script>
+</body>
+</html>

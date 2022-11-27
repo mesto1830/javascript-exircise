@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const getNumbers = numbers.sort(() => {
+      return Math.random() - 0.5
+    })
+
+    console.log(getNumbers)
+
+    //or
+    const getNumbers2 = Array.from({ length: 30 }, (a, b) => b + 1).sort(() => {
+      return Math.random() - 0.5
+    })
+
+    console.log(getNumbers2)
+
+  </script>
+</body>
+
+</html>

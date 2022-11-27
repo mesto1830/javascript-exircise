@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <script src="https://kit.fontawesome.com/b0f29e9bfe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <!-- <audio src="./page-flip-01a.wav" id="audio" autostart></audio> -->
+    <div id="ebook-left">
+        <p style="margin: 10px;text-align: center;">Toplam Sayfalar: <span id="total-page"></span></p>
+        <input type="button" value="Ilk Sayfa" id="first-btn" class="menu-items" onclick="firstPage()">
+        <input type="button" value="Son Sayfa" id="last-btn" class="menu-items" onclick="lastPage()">
+        <hr>
+        <input type="number" id="search-txt" min="0" value="0" placeholder="Sayfa numarasi?" class="menu-items">
+        <input type="button" value="Sayfaya Git" id="search-btn" onclick="search()" class="menu-items">
+        <hr>
+        <!-- <input type="number" id="txt-add-page" placeholder="Sayfa sayisi..." class="menu-items"> -->
+        <input type="button" value="Sayfa Ekle" id="add-btn" class="menu-items">
+        <!-- <input type="button" value="Sayfa Sil" id="delete-btn" class="menu-items"> -->
+        <input type="file" name="file" id="file" style="visibility: hidden;">
+    </div>
+    <div id="ebook-right">
+        <button id="prev-btn">
+            <i class="fas fa-arrow-circle-left"></i>
+        </button>
+    
+        <!-- The Book -->
+        <div id="book" class="book">
+            <!-- Paper 1 -->
+            <div id="p0" class="paper">
+                <div class="front">
+                    <div id="f0" class="front-content pages">
+                        
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b0" class="back-content pages">
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Paper 2 -->
+            <div id="p1" class="paper">
+                <div class="front">
+                    <div id="f1" class="front-content pages">
+                        
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b1" class="back-content pages">
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- Paper 3 -->
+            <div id="p2" class="paper">
+                <div class="front">
+                    <div id="f2" class="front-content pages">
+                       
+                    </div>
+                </div>
+                <div class="back">
+                    <div id="b2" class="back-content pages">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <button id="next-btn">
+            <i class="fas fa-arrow-circle-right"></i>
+        </button>
+    </div>
+
+    <script defer src="./main.js"></script>
+</body>
+</html>

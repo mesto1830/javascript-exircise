@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      width: 1800px;
+      height: 1200px;
+    }
+  </style>
+</head>
+<body>
+  
+  <script>
+    document.onscroll = () => {
+      if(window.scrollX){
+        console.log('ScrollX: ' + Math.floor(window.scrollX))//or this
+      }
+      if(window.scrollY){
+        console.log('ScrollY: ' + Math.floor(window.scrollY))//or this
+      }
+    }
+  </script>
+</body>
+</html>

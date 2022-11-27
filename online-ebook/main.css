@@ -1,0 +1,163 @@
+/* General */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    font-family: sans-serif;
+}
+#ebook-left{
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    height: 100%;
+    padding: 30px 10px;
+    background-color: #f1f1f1;
+}
+#ebook-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 90%;
+    background-color: lightblue;
+}
+.menu-items, .first-last-btn{
+    min-height: 36px;
+    margin: 5px 10px;
+    font-size: 18px;
+    border:none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+input[type='number'], #search-txt{
+    padding-left: 10px;
+}
+/* Button */
+button {
+    border: none;
+    background-color: transparent;
+    margin: 80px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover i {
+    color: rgb(102, 102, 102);
+}
+
+i {
+    color: gray;
+    font-size: 4em;
+}
+
+/* Book */
+.book {
+    width: 40%;
+    height: 90vh;
+    position: relative;
+    transition: transform 0.5s;
+}
+
+.paper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+}
+
+.front, 
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    background-color: white;
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.front {
+    backface-visibility: hidden;
+    border-left: 3px solid #dac400;
+    z-index: 1;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.back {
+    z-index: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-content {
+    transform: rotateY(180deg)
+}
+
+/* Paper Flipped */
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg)
+}
+
+/* Customization */
+
+.book-title {
+    text-align: center;
+    padding: 10px;
+}
+
+.pages{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.pages .page-numbers{
+    display: block;
+    width: 100%;
+    text-align: center;
+    min-height: 40px;
+    line-height: 40px;
+}
+.img, .img-cover{
+    width: 100%;
+    height: 94%;
+    object-fit: fill;
+    border-radius: 5px;
+}
+.img-cover {
+    height: 100%;
+}
+
+hr{
+    margin: 10px 0;
+    background-color: #ccc;
+}

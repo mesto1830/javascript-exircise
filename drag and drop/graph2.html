@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body{
+    position: relative;
+  }
+.new-node {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  position: absolute;
+  z-index: 9;
+  background-color: cornflowerblue;
+  text-align: center;
+  border: 1px solid cornflowerblue;
+  top: 20px;
+  left: 20px;
+  cursor: move;
+  text-align: center;
+  line-height: 50px;
+  vertical-align: middle;
+  color: #fff;
+}
+
+</style>
+<body>
+
+<script>
+  let num = 1
+    document.addEventListener('dblclick', (e) => {
+      let t = document.createElement('div')
+      t.innerText = num++
+      t.classList.add('new-node')
+      t.style.top = e.offsetY + 'px'
+      t.style.left = e.offsetX + 'px'
+      t.addEventListener('mousedown', (e) => {
+        setItemPosition(e)
+      })
+      document.body.appendChild(t)
+    })
+    
+    const setItemPosition = (el) => {
+      let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0
+      el = el || window.event;
+      el.preventDefault()
+
+      document.onmousemove = (e) => {
+        e = e || window.event
+        el.target.style.top =  (e.pageY - (el.target.offsetWidth/2)) + "px"
+        el.target.style.left = (e.pageX - (el.target.offsetHeight/2)) + "px"
+      }
+      
+      document.onmouseup = () => {
+        document.onmouseup = null
+        document.onmousemove = null
+      }
+    }
+</script>
+
+</body>
+</html>

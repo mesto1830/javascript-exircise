@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    //-----------------------------------inherints
+    class Employees {
+      constructor(name, age, salery) {
+        this.name = name,
+          this.age = age,
+          this.salery = salery
+      }
+      showInfos() {
+        console.log(this.name, this.age, this.salery)
+      }
+    }
+    const emp1 = new Employees('Mesto', 40, 5000)
+
+    //child or base class
+    class Admins extends Employees {
+      constructor(name, age, salery, role, task) {
+        super(name, age, salery),
+          this.role = role,
+          this.task = task
+      }
+      showInfos() {//override showInfos (from Employees)
+        console.log(this.name, this.age, this.salery, this.role, this.task)
+      }
+    }
+
+    const adm1 = new Admins('Mesto', 40, 5000, 'Aministrator', 'Testing')
+    adm1.showInfos()
+  </script>
+</body>
+
+</html>

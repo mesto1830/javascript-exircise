@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2 id="title">Check value is integer?</h2> 
+  <input type="text" id="age" placeholder="Enter something...">
+  <label>Press enter key...</label>
+<!-- script side----------------------------- -->
+  <script>
+    window.onload = () => {
+      document.getElementById('age').addEventListener('keyup',(event) => {
+        let age = document.getElementById('age').value
+        if (event.keyCode === 13) {
+          if (Number.isInteger(parseInt(age))) {
+            alert('Yes')
+          }else{
+            alert('No')
+          }
+        }
+      })
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="number" id="identity"  onkeyup="tckimlikkontorolu(event)">
+  <input type="button" id="send" value="Send">
+  <label for="" id="tc-msg"></label>
+
+  <script>
+    const tckimlikkontorolu = (param) => {
+      let tcno = param.target.value
+      let result = 0
+
+      for (let i = 0; i < tcno.length-1; i++) result += Number(tcno[i])
+
+      let getStrTotal = String(result)
+      let final = getStrTotal.slice(this.length-1);
+      if(final == tcno.slice(tcno.length-1)) {
+          document.getElementById('send').disabled = false
+          document.getElementById('tc-msg').innerText = final
+      } else{
+          document.getElementById('send').disabled = true
+          document.getElementById('tc-msg').innerText = 'Bu TC numarası geçersiz!'
+      }
+
+      //use this to check number and length
+      // if(!tcno.match(/[0-9]{11}/g)){
+      //    e.preventDefault()
+      //    document.getElementById('tc-msg').innerText = 'TC must be only 11 degit!'
+      // }
+
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <style>
+    .old-class{color: blue;}
+    .new-class{color: red;}
+  </style>
+</head>
+<body>
+  <div>
+    <h2>Event Target</h2>
+    <hr>
+    <input type="text" placeholder="Type & Enter">
+    <h2 onclick="getText(event)" class="old-class">Target 1</h2>
+    <h2 onclick="getText(event)" class="old-class">Target 2</h2>
+    <h2 onclick="getText(event)" class="old-class">Target 3</h2>
+  </div>
+<!-- script side----------------------------- -->
+  <script>
+    document.querySelector('input').addEventListener('keyup', (event) =>{
+      if (event.keyCode === 13) {
+        alert(event.target.value)
+      }
+    })
+    let getText = (event) => {
+      let oldclass = document.querySelectorAll('.old-class')
+      oldclass.forEach(item => {
+        item.classList.remove('new-class')
+      })
+      event.target.classList.add('new-class')
+      alert(event.target.innerText)
+    }
+  </script>
+</body>
+</html>

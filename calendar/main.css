@@ -1,0 +1,135 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+body{
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  background-color: #fffcff;
+  position: relative;
+}
+#container{
+  width: 770px;
+}
+#calendar{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin:auto;
+}
+button{
+  width: 75px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 2px gray;
+}
+#header{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  color:#d36c6c;
+  font-size: 26px;
+  font-family: sans-serif;
+}
+#header button{
+  color:#92a2d1;
+}
+#weekdays{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color:#247ba0;
+}
+#weekdays div{
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+}
+.day{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 110px;
+  height: 90px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 0 0 3px #cbd4c2;
+}
+
+#event-model, #delete-model{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #9eacb590;
+  z-index: 10;
+}
+#event-model-inside, #delete-model-inside{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  height: 150px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 100px;
+  padding: 20px;
+  border-radius: 5px;
+  background: #f1f1f1;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#event-model-inside input[type='text']{
+  height: 32px;
+  padding-left: 5px;
+  
+}
+.event{
+  width: 100%;
+  padding:2px 5px;
+  background-color: cornflowerblue;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 13px;
+}
+#current-day{
+  background-color: lightcyan;
+}
+
+
+
+/* CSS */
+.calendar-btn {
+  appearance: none;
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 3px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #24292E;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  padding: 4px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+
+}
+
+.calendar-btn:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}

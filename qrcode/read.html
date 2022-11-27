@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div style="width: 500px" id="reader"></div>
+  <script src="./html5-qrcode.min.js"></script>
+  <script>
+    function onScanSuccess(decodedText, decodedResult) {
+      if(decodedText === 'Kaya'){
+        alert(decodedText)
+      } else {
+        alert('Not match!')
+      }
+    }
+    
+    function onScanError(errorMessage) {
+      console.log(errorMessage)
+    }
+    let html5QrcodeScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 250 });
+    html5QrcodeScanner.render(onScanSuccess, onScanError);
+  </script>
+</body>
+
+</html>

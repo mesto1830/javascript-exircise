@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>No Multi Tabs</h2>
+  <script>
+    let test = sessionStorage.test ? sessionStorage.test : sessionStorage.test = Math.random()
+    if(typeof localStorage.test === 'undefined'){
+      localStorage.test = test
+    }
+
+    if(test !== localStorage.test){
+      document.body.innerHTML = 'You may not open multi tabs!'
+    }
+
+    window.addEventListener("beforeunload", (e) => {
+      e.defaultPrevented()
+      if(test == localStorage.test){
+        localStorage.removeItem('test')
+      }
+    })
+  </script>
+</body>
+</html>

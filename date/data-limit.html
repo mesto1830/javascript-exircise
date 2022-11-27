@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 600px;
+        margin: 50px auto;
+      }
+      .title {
+        text-align: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      form .reg_inp {
+        margin: 5px 0;
+        min-height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding-left: 5px;
+      }
+      form .info,
+      .error {
+        font-size: 12px;
+        color: #ccc;
+        padding-left: 10px;
+        margin-bottom: 10px;
+      }
+      form .error {
+        color: red;
+      }
+      .gender label {
+        cursor: pointer;
+      }
+      #aggre {
+        margin: 20px 0;
+        margin-left: 5px;
+      }
+      textarea {
+        resize: vertical;
+        margin: 10px 0;
+        padding: 10px;
+      }
+      h3 {
+        color: #999;
+      }
+      .children {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="title">Save</h2>
+      <form id="form">
+        <!-- birthday -->
+        <input
+          class="reg_inp"
+          id="birthdaytime"
+          type="date"
+          name="birthdaytime"
+          placeholder="Doğum Tarihi"
+          title="Doğum Tarihi"
+          required
+          min="1900-01-01"
+          max="2000-01-01"
+        />
+
+        <!-- started -->
+        <input
+          class="reg_inp"
+          id="start"
+          type="date"
+          name="start"
+          placeholder="Start"
+          title="Start"
+          required
+        />
+        <input
+          class="reg_inp"
+          id="finish"
+          type="date"
+          name="finish"
+          placeholder="Finish"
+          title="Finish"
+          required
+        />
+        <label for="aggre"
+          ><input type="checkbox" name="aggre" id="aggre" /> Aggre</label
+        >
+        <input type="submit" value="Kayit" id="submit" disabled />
+      </form>
+    </div>
+    <script>
+      //check aggre
+      document.getElementById("aggre").addEventListener("change", () => {
+        if (document.getElementById("submit").disabled) {
+          document.getElementById("submit").disabled = false;
+        } else {
+          document.getElementById("submit").disabled = true;
+        }
+      });
+
+      //pre set
+      const setDate = (e) => {
+        let d = new Date();
+        if(d.getMonth()+1 < 10){
+          today = `${d.getFullYear()}-0${d.getMonth()+1}-${d.getDate()}`
+        } else {
+          today = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
+        }
+        document.getElementById("start").setAttribute("min", today);
+        document.getElementById("start").value =  today;
+
+        document.getElementById("finish").setAttribute("min", document.getElementById("start").value);
+        document.getElementById('finish').addEventListener('change', (e) => {
+        if(document.getElementById("start").value > document.getElementById("finish").value){
+          e.preventDefault()
+          alert()
+        }
+      })
+      }
+      setDate()
+      //pre set on change
+      document.getElementById('start').addEventListener('change', (e) => {
+        document.getElementById("finish").setAttribute("min", e.target.value);
+      })
+      document.getElementById('finish').addEventListener('change', (e) => {
+        document.getElementById("start").setAttribute("max", e.target.value);
+      })
+      document.getElementById("form").addEventListener("submit", (e) => {
+        setDate(e)
+      });
+    </script>
+  </body>
+</html>

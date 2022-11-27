@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let test = (param) => {
+      let state = true
+      for (let item = 3; item < param; item++) {
+        if (param % item == 0) {
+          state = false
+          break
+        }
+      }
+      return state ? 'prime' : 'not prime'
+    }
+    console.log(test(11))
+
+
+
+  </script>
+</body>
+
+</html>

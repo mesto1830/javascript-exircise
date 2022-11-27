@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <video id="video" autoplay></video>
+    <input type="button" name="" id="snap" value="Capture">
+    <canvas id="canvas" width="640" height="480" style="margin:0;padding:0"></canvas>
+    <div id="img-con"></div>
+  </div>
+  <span id="err"></span>
+
+  <!-- script side -->
+  <script>
+    const video = document.getElementById('video')
+
+    const init = async() => {
+      try{
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: false,
+          video: { with: 640, height: 480 }
+        })
+        window.stream = stream
+        video.srcObject = stream
+      } catch(err) {
+        document.getElementById('err').innerHTML = err.toString()
+      }
+    }
+    init()
+
+    let context = document.getElementById('canvas').getContext('2d')
+    document.getElementById('snap').addEventListener('click', () => {
+      context.drawImage(video , 0, 0, 640, 480)
+      document.getElementById('img-con').innerHTML = '<img src= "'+ canvas.toDataURL() +'" id="img" alt="" width="640" height="480">'
+    })
+
+  </script>
+</body>
+</html>

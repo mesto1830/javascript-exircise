@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .title,
+      footer {
+        text-align: center;
+      }
+      footer {
+        background-color: #aaa;
+        color: #333;
+        font-size: 1rem;
+        font-weight: 300;
+        padding: 1rem 3rem 3rem 3rem;
+        margin-top: 0;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        min-height: 100vh;
+        padding: 50px;
+      }
+      .list {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .list_items {
+        display: flex;
+        flex: 1;
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="title">Intersection Lazy Loading</h2>
+    <div id="container"></div>
+    <footer id="footer">
+      <h2>Footer</h2>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        //an initial load
+        getData(0, 15);
+      });
+
+      let step = 15;
+      let start = step;
+      let end = start + step;
+
+      window.onscroll = (e) => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+          console.log('done')
+          getData(start, end);
+          start += step;
+          end = start + step;
+        }
+      };
+
+      const getData = async (start, end) => {
+        const result = await fetch(
+          "https://jsonplaceholder.typicode.com/comments"
+        );
+        const final = await result.json();
+        final.slice(start, end).forEach((item) => {
+          document.getElementById("container").innerHTML += `
+            <div class="list">
+              <span class="list_items">${item.id}</span>
+              <span class="list_items">${item.name}</span>
+              <span class="list_items">${item.email}</span>
+            </div>
+          `;
+        });
+      };
+    </script>
+  </body>
+</html>

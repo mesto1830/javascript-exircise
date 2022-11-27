@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-color: black;
+    }
+    .eyes{
+      position: absolute;
+      width: 100%;
+      top: 40%;
+      transform: translateY(-50%);
+      text-align: center;
+    }
+    .eye{
+      display: inline-block;
+      width: 240px;
+      height: 120px;
+      background-color: #fff;
+      border-radius: 50%;
+      margin: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ball{
+      width: 40px;
+      height: 40px;
+      background-color: #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 100%;
+      border: 15px solid #333;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="eyes">
+    <div class="eye">
+      <div class="ball"></div>
+    </div>
+  
+    <div class="eye">
+      <div class="ball"></div>
+    </div>
+  </div>
+
+  <script>
+    let balls = document.querySelectorAll('.ball')
+    document.addEventListener('mousemove', (e) => {
+      let x = e.clientX * 100 / window.innerWidth + '%'
+      let y = e.clientY * 100 / window.innerHeight + '%'
+
+      balls.forEach(item => {
+        item.style.left = x
+        item.style.top = y
+        item.style.transform = `translate(-${x}, -${y})`//stop outer eyes
+      })
+    })
+  </script>
+</body>
+</html>

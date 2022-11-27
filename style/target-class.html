@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #list{
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      width:200px;
+    }
+    .list{
+      border:1px solid #ccc;
+      border-radius:2px;
+      margin:3px 0;
+      padding:5px;
+    }
+    .new-class{color: red;}
+  </style>
+</head>
+<body>
+  <h2 id="title">Target Class</h2>
+  <ul id="list">
+    <!-- dynamic side -->
+  </ul>
+<!-- script side----------------------------- -->
+  <script>
+    let users = ['Html','Css','Javascript','NodeJs','vueJs','NuxtJs','Mysql','Mongodb']
+    userlist = () => {
+      users.forEach(item => {
+        document.getElementById('list').innerHTML += `
+        <li class="list" onclick="targetClass(event)">${item}</li>`
+      })
+    }
+   userlist()
+  //style list----------------------------------
+   let targetClass = (event) => {
+      document.querySelectorAll('.list').forEach(item => {
+        item.classList.remove('new-class')
+      })
+      event.target.classList.add('new-class')
+      alert(event.target.innerText)
+    }
+  </script>
+</body>
+</html>

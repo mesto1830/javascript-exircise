@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const users = [
+      {name:'mesto', age:50},
+      {name:'ali', age:30},
+      {name:'kenan', age:40},
+      {name:'faruk', age:50}
+    ]
+    // const test = users.slice(0, 2)
+    const test = users.slice(1, users.length-1)
+    test.forEach(item => {
+      console.log(item.name)
+    });
+  </script>
+</body>
+</html>

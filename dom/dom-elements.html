@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>Dom Elements</h2>
+  <ul id="list">
+    <li>Html</li>
+    <li>Css</li>
+    <li>Javascript</li>
+    <li>Nodejs</li>
+    <li>Mongodb</li>
+  </ul>
+
+  <h2>Footer</h2>
+
+  <script>
+    const el = document.getElementById('list')
+    // console.log(el.parentElement)//the same with parentNode
+    // console.log(el.parentNode)
+    //-----------------------------------
+    // console.log(el.firstElementChild)
+    //-----------------------------------
+    // console.log(el.lastElementChild)
+    //-----------------------------------
+    // console.log(el.nextElementSibling)
+    //-----------------------------------
+    // console.log(el.previousElementSibling)
+    //-----------------------------------------
+    // el.id = 'list2'//the same with setAttribute but not with events
+    // el.setAttribute('id', 'list2')
+    // console.log(el.id)
+    //------------------------------------
+    // console.log(el.id)
+    // console.log(el.getAttribute('id'))
+    //--------------------------------------
+
+    console.log(el.children[4])
+
+  </script>
+</body>
+
+</html>

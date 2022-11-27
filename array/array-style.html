@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .bl-td {
+      border: 1px solid #999;
+      padding: 5px;
+      cursor: pointer;
+    }
+    ul{
+      list-style: none;
+    }
+    #loadWithButton{color:red;}
+  </style>
+</head>
+
+<body>
+  <h2>Balkons</h2>
+  <table id="balcons" class="balcons">
+    <tr id="bl"></tr>
+  </table>
+  <ul id="userSelected"></ul>
+  <ul id="loadWithButton"></ul>
+  <input type="button" name="" id="btn" value="Get Selected">
+
+  <!-- script side -->
+  <script>
+    for (let i = 1; i < 25; i++) {
+      document.getElementById('bl').innerHTML +=
+        `<td class="bl-td" onclick="getBal(event)">${i}</td>`
+    }
+
+    const allBl = []
+    const getBal = (e) => {
+      if (e.target.hasAttribute('style')) {
+        e.target.removeAttribute('style')
+        allBl.forEach((item, index) => {
+          if (item === e.target.innerHTML) {
+            allBl.splice(index, 1)
+          }
+        })
+      } else {
+        e.target.setAttribute('style', 'background-color: #444;color:#fff;')
+        document.getElementById('userSelected').innerHTML += `<li>${e.target.innerHTML}</li>`
+        allBl.push(e.target.innerHTML)
+      }
+    }
+    document.getElementById('btn').addEventListener('click', () => {
+      document.getElementById('loadWithButton').innerHTML = ''
+      for (const item of allBl) {
+        document.getElementById('loadWithButton').innerHTML += `<li>${item}</li>`
+      }
+    })
+    
+    //as addeventlistener
+    // document.querySelectorAll('.bl-td').forEach(item => {
+    //   item.addEventListener('click', (e) => {
+    //     e.target.setAttribute('style', 'background-color: #444;color:#fff;')
+    //     allBl.push(e.target.innerHTML)
+    //   })
+    // })
+  </script>
+</body>
+
+</html>

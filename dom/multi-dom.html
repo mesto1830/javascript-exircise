@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .btn {
+      width: 100px;
+      height: 30px;
+      border: none;
+      background-color: rgb(91, 234, 208);
+      color: #333;
+      cursor: pointer;
+      display: inline-block;
+      margin-left: 5px;
+      border-radius: 4px;
+      font-weight: 500px;
+      font-size: 16px;
+    }
+
+    .new {
+      width: 100px;
+      height: 30px;
+      border: none;
+      background-color: #444;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      margin-left: 5px;
+      border-radius: 4px;
+      font-weight: 500px;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: lightseagreen;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Dom Generator</h2>
+
+  <script>
+    for (let i = 0; i < 5; i++) {
+      let bt = document.createElement('BUTTON')
+      bt.innerText = `Button ${i}`
+      bt.classList.add('btn')
+      bt.setAttribute('id', `btn-${i}`)
+      bt.addEventListener('click', (e) => {
+        document.querySelectorAll('.new').forEach(item => {
+          item.classList.remove('new')
+        })
+        e.target.classList.add('new')
+      })
+      document.body.appendChild(bt)
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" name="form1">
+    <input type="text" name="username" id="">
+    <input type="button" name="send" value="Send Form1">
+  </form>
+  <hr>
+  <form action="" name="form2">
+    <input type="text" name="username" id="">
+    <input type="button" name="send" value="Send Form2">
+  </form>
+
+  <script>
+    document.forms['form1']['send'].addEventListener('click', () => {
+      alert(document.forms['form1']['username'].value)
+    })
+    document.forms['form2']['send'].addEventListener('click', () => {
+      alert(document.forms['form2']['username'].value)
+    })
+  </script>
+</body>
+</html>

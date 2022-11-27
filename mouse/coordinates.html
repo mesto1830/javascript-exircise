@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      min-width: 1500px;
+      min-height: 900px;
+    }
+    #span{
+      display: block;
+      width: 800px;
+      height: 550px;
+      border: 1px solid #ccc;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div>Click here to get client and screen coordinates</div>
+  <div>Click bottom of the page to get page coordinates</div>
+  <span id="span">Click here for offset coordinates</span>
+
+<script>
+  document.addEventListener('click', (e) => {
+    //screen: to get whole computer coordinate
+    // console.log('screenX   : --------------------'+ e.screenX)
+    console.log('screenY   : --------------------'+ e.screenY)
+
+    //client: to get browser coordinate
+    // console.log('clientX : --------------------'+ e.clientX) 
+    console.log('clientY : --------------------'+ e.clientY)
+
+    //page: to get page coordinate page can be 2000px height or width
+    // console.log('pageX   : --------------------'+ e.pageX)
+    console.log('pageY   : --------------------'+ e.pageY)
+
+    //offset: to get page and element coordinate 
+    // console.log('offsetX   : --------------------'+ e.offsetX)
+    console.log('offsetY   : --------------------'+ e.offsetY)
+    console.log('*****************************************************')
+  })
+
+</script>
+</body>
+</html>

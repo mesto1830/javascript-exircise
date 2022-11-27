@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="text" name="" id="name" />
+    <input type="text" name="" id="lastname" />
+    <button id="btn">Factory Constructer</button>
+    <script>
+      const $ = (param) => document.querySelector(param);
+
+      //factory constructer
+      function person(name, lastname) {
+        this.name = name,
+        this.lastname = lastname,
+        this.fullName = function () {
+          return this.name + " " + this.lastname;
+        }
+      }
+
+      $("#btn").onclick = (e) => {
+        const per1 = new person($("#name").value, $("#lastname").value);
+        console.log(per1.fullName());
+      };
+    </script>
+  </body>
+</html>

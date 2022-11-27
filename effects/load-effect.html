@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      overflow: hidden;
+      height: 100vh;
+    }
+    .bubbles{
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      pointer-events: none;
+      background-image: url('./heart.png');
+      background-size: cover;
+      animation: animate 4s linear infinite
+    }
+    @keyframes animate{
+      0%{
+        transform: translate(-50%,500%);
+        opacity:0.5;
+        filter:hue-rotate(0deg)
+      }
+      100%{
+        transform: translate(-50%,-1000%);
+        opacity:0;
+        filter:hue-rotate(720deg)
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const addElements = () => {
+      let body = document.querySelector('body')
+      let bubbles;
+      for (let i = 0; i < 50; i++) {
+        let bubbles = document.createElement('span')
+        bubbles.classList.add('bubbles')
+        bubbles.style.top = Math.random() * 500 + 'px'
+        bubbles.style.left = Math.random() * 1900 + 'px'
+        let size = Math.random() * 100
+        bubbles.style.width = size + 'px'
+        bubbles.style.height = size + 'px'
+        body.appendChild(bubbles)
+      }
+      
+      setInterval(() => {
+        setEffect()
+      }, 4000);
+    }
+    addElements()
+  </script>
+</body>
+</html>

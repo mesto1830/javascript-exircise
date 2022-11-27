@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    canvas{
+      border: 1px solid #999;
+    }
+  </style>
+</head>
+<body>
+  
+  <canvas></canvas>
+
+  <script>
+    let canvas = document.querySelector('canvas')
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight + 200
+
+    let ctx = canvas.getContext('2d')
+
+    //rect
+    ctx.fillStyle = 'blue'
+    ctx.fillRect(5, 5, 100, 100)//x,y,width,height
+    ctx.fillStyle = 'lightgreen'
+    ctx.fillRect(105, 105, 100, 100)//x,y,width,height
+
+    //line
+    ctx.moveTo(105,105)//begin of x,y
+    ctx.lineTo(120,120)//end of x,y
+    ctx.lineTo(200,120)//end of x,y
+    ctx.lineTo(300,200)//end of x,y
+    ctx.strokeStyle = 'red'
+    ctx.stroke()
+
+    //arc
+    ctx.arc(500,300,50,30,Math.PI*2,true)
+    ctx.stroke()
+
+    //if you want draw with new begin point set beginPath()
+    ctx.beginPath()
+    ctx.strokeStyle = 'blue'
+    ctx.arc(600,400,50,0,Math.PI*2,false)
+    ctx.fill()
+
+
+    //loop
+    let color = '#'+Math.floor(Math.random()*16777215).toString(16)
+    for (let i = 0; i < 3; i++) {
+      let x = Math.random() * window.innerWidth
+      let y = Math.random() * window.innerHeight
+
+      ctx.beginPath()
+      ctx.arc(x,y,20,0,Math.PI*2,false)
+      ctx.fillStyle = color
+      ctx.fill()
+    }
+    // canvas.addEventListener('mousedown', (e) => {
+    //   ctx.fillRect(e.pageX, e.pageY, 100, 100)//x,y,width,height
+    // })
+
+    // canvas.addEventListener('mousedown', (e) => {
+    //   ctx.beginPath()
+    //   ctx.moveTo(e.x, e.y)//begin of x,y
+    //   ctx.lineTo(e.x+20, e.y +20)//end of x,y
+    //   ctx.stroke()
+    // })
+  </script>
+</body>
+</html>

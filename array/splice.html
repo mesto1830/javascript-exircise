@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+     // remove with splice
+    let users = ['Mustafa','Baran','Hasan']
+    users.splice(0,1)
+    console.log(users)
+
+
+    // remove range
+    let users2 = ['Mustafa','Baran','Hasan']
+    users2.splice(1,1)
+    console.log(users2)
+
+    // insert
+    let users3 = ['Mustafa','Baran','Hasan']
+    users3.splice(1,1,'Ali')
+    console.log(users3)
+
+    // insert and delete
+    let users4 = ['Mustafa','Baran','Hasan']
+    users4.splice(1,0,'Ali')
+    console.log(users4)
+
+    // insert and delete two items
+    let users5 = ['Mustafa','Baran','Hasan']
+    users5.splice(1,2,'Ali')
+    console.log(users5)
+
+    // insert two items and delete one items
+    let users6 = ['Mustafa','Baran','Hasan']
+    users6.splice(1,1,'Ali','Deniz')
+    console.log(users6)
+  </script>
+</body>
+</html>

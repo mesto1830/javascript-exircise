@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+  <!-- navbar -->
+  <nav id ="navbar" class="navbar">
+		<!-- font -->
+		<section class="nav-container">
+			<div class="nav-header">Yazı Tipi</div>
+			<div class="nav-content">
+				<input type="number" name="font-size" id="font-size" class="font-input input" title="Yazı Boyutu" onchange="checkTopElement()">
+				<input type="color" name="font-color" id="font-color" class="color-input  input" title="Yazı Rengi">
+				<label id="font-italic" class="font-position input" title="Yazı Stili İtalik"><img src='./icons/font-italic.png' alt="" ></label>
+				<label id="font-nor" class="font-position input" title="Yazı Stili Normal"><img src='./icons/font-normal.png' alt="" ></label>
+				<label id="font-bold" class="font-position input" title="Yazı Stili Kalın"><img src='./icons/font-bold.png' alt="" ></label>
+				<select name="" id="font-type">
+					<option selected disabled>Yazı Tipi</option>
+					<option value="Arial">Arial</option>
+					<option value="Courier New">Courier New</option>
+					<option value="Times New Roman">Times New Roman</option>
+					<option value="sans-serif">sans-serif</option>
+					<option value="Verdana">Verdana</option>
+					<option value="Cambria">Cambria</option>
+					<option value="cursive">Cursive</option>
+					<option value="Impact">Impact</option>
+					<option value="monospace">Monospace</option>
+					<option value="serif">Serif</option>
+				</select>
+			</div>
+		</section>
+		<!-- text horizontal poition -->
+		<section class="nav-container">
+			<div class="nav-header">Yatay</div>
+			<div class="nav-content">
+				<label id="font-left" class="font-position input" title="Yazı Sola Dayalı "><img src='/icons/font-left.png' alt=""></label>
+				<label id="font-center" class="font-position input" title="Yazı Ortalı"><img src='/icons/font-center.png' alt="" ></label>
+				<label id="font-right" class="font-position input" title="Yazı Sağa Dayalı"><img src='/icons/font-right.png' alt="" ></label>
+			</div>
+		</section>
+        <section class="nav-container">
+            <div class="nav-header">Text ve Arkaplan</div>
+            <div class="nav-content">
+              <textarea name="" id="text" cols="3" rows="1" draggable="true" ondragstart="drag(event)" disabled></textarea>
+			  <input type="number" name="opacity" min="0.1" max="1" step="0.1" id="opacity" value="0" class="opacity-input" title="Text Arkaplan Saydamlık">
+			  <input type="color" name="bgc-color" id="bgc-color" class="color-input input" title="Zemin Rengi">
+			  <input type="button" name="ni-bgc-color" id="no-bgc-color" class="color-input input" value="X">
+			</div>
+          </section>
+    </section>
+		<!-- border -->
+		<section class="nav-container input">
+			<div class="nav-header">Kenarlık</div>
+			<div class="nav-content">
+				<select name="border-style" id="border-style" class="input-select">
+					<option selected>Border</option>
+					<option value="solid">Solid</option>
+					<option value="dotted">Dotted</option>
+					<option value="dashed">Dashed</option>
+					<option value="double">Double</option>
+					<option value="groove">Groove</option>
+					<option value="ridge">Ridge</option>
+					<option value="inset">Inset</option>
+					<option value="outset">Outset</option>
+				</select>
+				<input type="number" name="border" id="border-width" value="0" class="border input" title="Kenar Kalınlığı">
+				<input type="color" name="border-color" id="border-color" class="color-input input" title="Kenar Rengi">
+				<input type="number" name="border-radius" id="border-radius" value="0" class="border-radius input" title="Kenar Ovallığı">
+			</div>
+		</section>
+		<!-- padding -->
+		<section class="nav-container">
+			<div class="nav-header">Boşluk</div>
+			<div class="nav-content">
+				<input type="number" name="padding" id="padding-left" value="0" class="padding-input input" title="Sol Boşluk">
+				<input type="number" name="padding" id="padding-top" value="0" class="padding-input input" title="Üst Boşluk">
+				<input type="number" name="padding" id="padding-right" value="0" class="padding-input input" title="Sağ Boşluk">
+				<input type="number" name="padding" id="padding-bottom" value="0" class="padding-input input" title="Alt Boşluk">
+				<input type="number" name="padding-all" id="padding-all"  value="0" class="padding-input input">
+			</div>
+		</section>
+		<!-- images -->
+		<section class="nav-container ">
+			<div class="nav-header">Arkaplan Resmi</div>
+			<div class="nav-content">
+				<select name="background-size" id="background-size" class="input-select" title="Arka Plan Boyutu">
+					<option selected>Boyut</option>
+					<option value="auto">Otomatik</option>
+					<option value="cover">Kaplama</option>
+					<option value="contain">İçerik</option>
+				</select>
+				<select name="background-position" id="background-position" class="input-select" title="Arka Plan Pozisyonu">
+					<option selected>Pozisyon</option>
+					<option value="center">Orta</option>
+					<option value="left">Sol</option>
+					<option value="right">Sağ</option>
+					<option value="top">Üst</option>
+					<option value="top left">Üst Sol</option>
+					<option value="top right">Üst Sağ</option>
+					<option value="bottom">Alt</option>
+					<option value="bottom left">Alt Sol</option>
+					<option value="bottom right">Alt Sağ</option>
+				</select>
+				<select name="background-repeat" id="background-repeat" class="input-select" title="Arka Plan Tekrarı">
+					<option value="repeat">Tekrar</option>
+					<option value="repeat-x">Tekrar-Yatay</option>
+					<option value="repeat-y">Tekrar-Dikey</option>
+					<option value="no-repeat">Tekrar Yok</option>
+				</select>
+				<div class="nav-content nav-content-last">
+					<input type="color" name="" id="tual-background">
+					<label for="load-file" id="bgi-img" class="img-buttons input" title="Taul Araka Plan Resmi">
+						Arkaplan Resmi Ekle
+					</label>
+					<input type="file" accept="image/*" name="img-file" id="load-file" style="display: none;" title="Resim Yükle">
+					<input type="button" class="img-buttons" id="no-background" value="Arkaplan Resmi Yok">
+					<input type="number" min="0.1" max="1" step="0.1" id="tual-opacity" value="0" class="opacity-input" title="Arkaplan Saydamlık">
+				</div>
+			</div>
+		</section>
+		
+		<section  class="nav-container">
+			<div class="nav-header">Harici</div>
+			<div class="nav-content">
+				<label id="file_icon" for="file_get_image" class="img-buttons">
+					Resim Ekle
+				</label>
+				<input type="file" id="file_get_image" hidden>
+			</div>
+		</section>
+		<section  class="nav-container">
+			<div class="nav-header">Pozisyon</div>
+			<div class="nav-content">
+				<input type="button" class="input" id="static" class="static" value="Statik">
+				<input type="button" class="input" id="dynamic" class="static" value="Dinamik">
+				<label id="item-left" class="font-position input" title="Yazı Sola Dayalı "><img src= '/icons/font-left.png' alt=""></label>
+				<label id="item-center" class="font-position input" title="Yazı Ortalı"><img src= '/icons/font-center.png' alt="" ></label>
+				<label id="item-right" class="font-position input" title="Yazı Sağa Dayalı"><img src= '/icons/font-right.png' alt="" ></label>
+			</div>
+		</section>
+		<section  class="nav-container">
+			<div class="nav-header">Sil-Kaydet</div>
+			<div class="nav-content">
+				<img src="/icons/delete.png" alt="" id="trash" class="save-delete-btn">
+				<img src="/icons/Save-icon.png" alt="" id="screenshot-button" class="input save-delete-btn">
+			</div>
+		</section>
+		<section  class="nav-container">
+			<div class="nav-header">Dergi Adı</div>
+			<div class="nav-content">
+				<label id="magazine-name">{{$magazine->name}}</label>
+				<input type="hidden" name="" id="magazine-slug" value="{{$magazine->slug}}">
+				<input type="hidden" name="" id="magazine-id" value="{{$magazine->id}}">
+			</div>
+		</section>
+		<section  class="nav-container">
+			<div class="nav-header">Son Sayfa</div>
+			<div class="nav-content">
+				<label id="last-page" class="page-number" style="color:#fff;font-size:15px;"></label>
+			</div>
+		</section>
+		<section  class="nav-container">
+			<div class="nav-header">Sayfa</div>
+			<div class="nav-content">
+				<input type="number" min="0" id="add-page-count" class="page-number" placeholder="Ara Sayfa"/>
+			</div>
+		</section>
+  </nav>
+  <!-- container -->
+  <div id="container" class="editor-container" style="position: relative">
+    <!-- left -->
+    <section  class="left">
+      <div id="left" class="blog-container">
+        <h2 id="tt" class="blog-title"  draggable="true" ondragstart="drag(event)">Blog Title</h2>
+        <p id = "p" class="blog-content"  draggable="true" ondragstart="drag(event)">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, quas est accusantium excepturi magnam, illum tempora dicta cupiditate qui accusamus repudiandae cumque quos ipsa? Accusamus maiores culpa perferendis assumenda tempore?        
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, quas est accusantium excepturi magnam, illum tempora dicta cupiditate qui accusamus repudiandae cumque quos ipsa? Accusamus maiores culpa perferendis assumenda tempore?        
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad, quas est accusantium excepturi magnam, illum tempora dicta cupiditate qui accusamus repudiandae cumque quos ipsa? Accusamus maiores culpa perferendis assumenda tempore?        
+        </p>
+        <img src="./img.png" alt="" id ="1" class="img" draggable="true" ondragstart="drag(event)">
+        <img src="./img.png" alt="" id ="2" class="img" draggable="true" ondragstart="drag(event)">
+        <img src="./img.png" alt="" id ="3" class="img" draggable="true" ondragstart="drag(event)">
+      </div>
+    </section>
+    <!-- right -->
+    <section id="right" class="right" >
+      <input
+        type="file"
+        accept="image/*"
+        id="file"
+        name="image"
+        hidden
+      />
+      <div id="tual" class="tual" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    </section>
+  </div>
+  <!-- script side -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

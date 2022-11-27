@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>AddEventListener</h1>
+  <button id="btn">Outer Callback</button>
+  <button id="btn2">Inner Callback</button>
+
+<!-- script side----------------------------- -->
+  <script>
+//outer callback
+    function run () {
+      alert('Outer Callback')
+    }
+    document.getElementById('btn').addEventListener('click', run)
+//inner callback
+    document.getElementById('btn2').addEventListener('click', () =>{
+      alert('Inner Callback')
+    })
+  </script>
+</body>
+</html>

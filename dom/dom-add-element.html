@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .new-class {
+      margin: 0 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Dom Create</h1>
+  <button onclick="createItem()">Create Element</button>
+  <button onclick="removetem()">Remove Element</button>
+  <!-- script side----------------------------- -->
+  <script>
+    let createItem = () => {
+      let btn = document.createElement("BUTTON") // Create a <button> element
+      btn.innerHTML = 'Start' // Insert text
+      btn.className = 'new-class' //add class
+      document.body.appendChild(btn)
+    }
+    let removetem = () => {
+      let item = document.querySelectorAll('.new-class')
+      item[0].remove()
+    }
+  </script>
+</body>
+
+</html>

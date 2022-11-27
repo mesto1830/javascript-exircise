@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <h2>Hold mousedown</h2>
+  <canvas></canvas>
+
+  <script>
+    const canvas = document.querySelector('canvas')
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight-50
+
+    let ctx = ''
+    
+    document.body.addEventListener('mousedown', (e) => {
+      ctx = canvas.getContext('2d')
+      // let x = Math.random() * innerWidth
+      // let y = Math.random() * innerHeight
+      //or
+      let x = e.x
+      let y = e.y
+
+      let dx = 10
+      let dy = 10
+      const animate = () => {
+        requestAnimationFrame(animate)
+        ctx.beginPath()
+        ctx.arc(x, y, 30, 0, Math.PI * 2, false)
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = '#222'
+        ctx.stroke()
+        ctx.fillStyle = 'lightblue'
+        ctx.fill()
+
+        if(x + 30 > innerWidth || x - 30 < 0){
+          dx =-dx
+        }
+        x +=dx
+        if(y + 30 > innerHeight || y - 30 < 0){
+          dy =-dy
+        }
+        y +=dy
+      }
+      animate()
+    })
+    document.body.addEventListener('mouseup', () =>{
+      ctx = null
+    })
+  </script>
+</body>
+</html>

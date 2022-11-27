@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // return only one and first object
+        const f = data[0].results.find(item => item.home.name === 'Gremio')
+        if (f !== undefined) {//check key must be undefined
+            console.log(f)
+        } else {
+            console.log('No date!')
+        }
+        // findindex return only one and first object position
+        const fi = data[0].results.findIndex(item => item.home.name === 'Gremio')
+        if (fi !== undefined) {//check key must be undefined
+            console.log('Founded position' + ' = ' + fi)
+        } else {
+            console.log('No date!')
+        }
+    </script>
+</body>
+
+</html>

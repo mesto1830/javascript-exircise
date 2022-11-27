@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    function test(param) {
+      console.log(param)
+      let onlyWords = param.match(/[a-z-A-Z-0-9]+/g).sort((a, b) => b.length - a.length)
+      console.log(onlyWords)
+      return onlyWords.filter((item) => item.length === onlyWords[0].length)
+    }
+    console.log(test("Hello Mustafa!How are you today?"))
+  </script>
+</body>
+
+</html>

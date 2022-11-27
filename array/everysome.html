@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let users = [
+      { id: 1, name: 'Mustafa', age: 40, city: 'Urfa' },
+      { id: 2, name: 'Reso', age: 30, city: 'Amed' },
+      { id: 3, name: 'Baran', age: 45, city: 'Urfa' }
+    ]
+    // every
+    console.log(users.every(item => item.name === 'Reso'))
+    console.log(users.every(item => item.name === 'Reso' && item.city === 'Amed'))
+
+    // some
+    console.log(users.some(item => item.name === 'Reso'))
+    console.log(users.some(item => item.name === 'Reso' && item.city === 'Amed'))
+// sometwo arrays
+
+  </script>
+</body>
+
+</html>

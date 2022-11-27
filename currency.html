@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Currency With toLocalString</h1>
+  <script>
+    const currency = 2500.34
+    const option = {
+      style:'currency',
+      currency:'usd'
+    }
+    console.log(currency.toLocaleString('tr-TR', option))
+    console.log(currency.toLocaleString('nl-NL', option))
+    console.log(currency.toLocaleString('de-DE', option))
+  </script>
+</body>
+</html>

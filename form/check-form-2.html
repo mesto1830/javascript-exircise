@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .inputs {
+      border: 2px solid #ccc;
+      min-height: 30px;
+      border-radius: 3px;
+      padding-left: 5px;
+    }
+
+    .valid {
+      border: 2px solid green;
+    }
+
+    .invalid {
+      border: 2px solid red;
+    }
+
+    /* .error:focus{
+      outline: none;
+      box-shadow: 1px 1px 1px inset #ccc;
+    } */
+  </style>
+</head>
+
+<body>
+  <h1>Check Form Inputs With Regex</h1>
+  <input type="text" id="name" class="inputs" placeholder="Name"><span id="name_length"></span>
+  <input type="email" id="email" class="inputs" placeholder="email">
+  <input type="phone" id="phone" class="inputs" placeholder="phone">
+  <input type="text" id="password" class="inputs" placeholder="password">
+  <script>
+
+    let pattern = {
+      name: /^.{1,50}[a-z0-9]$/,
+      email: /([^ ]+)@([^ ]+)\.([a-z]{2,3})(\.[a-z]{2,3})?/,
+      // email: /(^[^ ]{2,50})@([^ ]{2,30})\.([a-z]{2,3})(\.[a-z]{2,3})?/, //with maxlength
+      phone: /^.{9}\d$/,
+      password:/^.{5,50}\w$/
+    }
+    const validate = (regex, field) => {
+      if (field.value.match(regex)) {
+        field.classList.remove('invalid')
+        field.classList.add('valid')
+      } else {
+        field.classList.remove('valid')
+        field.classList.add('invalid')
+      }
+    }
+    document.querySelectorAll('.inputs').forEach(item => {
+      item.addEventListener('keyup', (e) => {
+        validate(pattern[e.target.id], e.target)
+      })
+    })
+
+  </script>
+</body>
+
+</html>

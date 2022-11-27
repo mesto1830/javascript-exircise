@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+    nav{
+      overflow-x: auto;
+      padding: 0 20px;
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+    }
+    nav ul{
+      display: flex;
+      align-items: center;
+      height: 60px;
+      list-style: none;
+    }
+    nav ul li{
+      padding: 20px;
+    }
+    nav ul li a{
+      display: flex;
+      align-items: center;
+      height: 30px;
+      padding: 0 30px;
+      background-color: cadetblue;
+      color: #fff;
+      border-radius: 30px;
+      white-space: nowrap;
+    }
+    nav ul li.active a{
+      background-color: forestgreen;
+    }
+    section{
+      height: 600px;
+      margin-bottom: 20px;
+      background-color: lightblue;
+      scroll-margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="#section1">Section 1</a></li>
+      <li><a href="#section2">Section 2</a></li>
+      <li><a href="#section3" >Section 3</a></li>
+      <li class="active"><a href="#section4">Section 4</a></li>
+    </ul>
+  </nav>
+
+  <section id="section1">section1</section>
+  <section id="section2">section2</section>
+  <section id="section3">section3</section>
+  <section id="section4">section4</section>
+
+  <script>
+    const lists = document.querySelectorAll('nav ul li')//node list
+    lists.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault()
+        //convert array for nodelist
+        Array.from(lists).map(item => item.classList.remove('active'))
+        item.classList.add('active')
+        let href = item.querySelector('a').getAttribute('href').replace('#', '')
+        document.getElementById(href).scrollIntoView({
+          block: 'center',
+          inline: 'center',
+          behavior: 'smooth'
+        })
+      })
+    });
+    let st = ''
+    addEventListener('scroll', () => {
+      clearTimeout(st)
+      st = setTimeout(() => {
+        document.querySelector('.active').scrollIntoView({
+          block: 'nearest',
+          inline: 'center',
+          behavior: 'smooth'
+        })
+      }, 100);
+    })
+    document.querySelector('.active').scrollIntoView({
+      block: 'center',
+      inline: 'center',
+      behavior: 'smooth'
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" id="form1" onkeyup="checkForm('form1')" onchange="checkForm('form1')">
+    <input type="text" name="" id="" required>
+    <input type="password" name="" id="" required>
+    <input type="submit" name="" id="send" value="Send" disabled>
+  </form>
+
+  <script>
+    const checkForm = (param) => {
+      const inputLength = document.getElementById(param).querySelectorAll(':invalid').length
+      if(inputLength < 1){
+        document.getElementById('send').removeAttribute('disabled')
+      } else {
+        document.getElementById('send').setAttribute('disabled', 'disabled')
+      }
+    }
+  </script>
+</body>
+</html>

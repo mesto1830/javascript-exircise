@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    //sync
+    console.log('-----------------------------------------------------------Sync')
+    let num = 0
+     function inc(){
+      console.log('above ' + num)
+      num +=  2
+      console.log('Inside ' + num)
+    }
+    
+    inc()
+    num += 1
+    console.log('Outside ' + num)
+console.log('-----------------------------------------------------------Async')
+    //async
+    let num1 = 0
+     async function incAsync(){
+      console.log('above ' + num1)
+      num1 +=  await 2
+      console.log('Inside ' + num1)
+    }
+    
+    incAsync()
+    num1 += 1
+    console.log('Outside ' + num1)
+  </script>
+</body>
+</html>

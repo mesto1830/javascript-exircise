@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <iframe src="" id="map-frame" frameborder="0" width="600" height="400"></iframe>
+
+  <!-- script side -->
+  <script>
+
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(findLocation);
+      }
+    }
+    const findLocation = (param) => {
+      document.getElementById('map-frame').setAttribute('src', 
+      `https://maps.google.com.tr/?q=
+      ${param.coords.latitude}, 
+      ${param.coords.longitude}&output=embed`)
+      console.log(param)
+    }
+    getLocation()
+  </script>
+</body>
+</html>

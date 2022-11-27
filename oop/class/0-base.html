@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    class Employees {
+      constructor(name, age, salery) {
+        this.name = name,
+        this.age = age,
+        this.salery = salery
+      }
+      showInfos() {
+        console.log(this.name, this.age, this.salery)
+      }
+    }
+    const Emp1 = new Employees('Mesto', 40, 5000)
+    Emp1.showInfos()
+    console.log(Emp1.age)
+    console.log(Object.keys(Emp1))
+    console.log(Object.values(Emp1))
+  </script>
+</body>
+
+</html>

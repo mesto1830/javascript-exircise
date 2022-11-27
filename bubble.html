@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width: 400px;
+      height: 300px;
+      border: 5px solid #ccc;
+      border-radius: 5px;
+      padding: 40px;
+    }
+    header{
+      width: 100%;
+      height: 100%;
+      border: 5px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div onclick="getParent()">
+    main
+    <header onclick="getHeader(event)">
+      test
+    </header>
+  </div>
+
+  <script>
+    const getParent = (e) => {
+      alert('Parent')
+    }
+    const getHeader = (e) => {
+      e.cancelBubble = true // stop parent event inside parent div or self
+      alert('Header')
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let test = (param) => param.filter(item => item % 2 == 0)
+    console.log(test(Array.from({ length: 20 }, (a, b) => b + 1)))
+
+//rest operator is dynamic prameters
+// let test = (...args)=>{
+//   let total = []
+//   for (let item in args) {
+//     if (item % 2 == 0) {
+//       total.push(item)
+//     }
+//   }
+//   return total
+// }
+// console.log(test(1,2,3,4,5,6,7,8,9))
+
+  </script>
+</body>
+
+</html>

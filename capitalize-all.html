@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>Capitalize All</h2>
+  <script>
+    //return first letters
+    const test0 = (param) => param.split(' ').map(item => item[0].toUpperCase()).join(' ')
+    console.log(test0('mongodb express vuejs nodejs'))
+
+    //return all words
+    const test1 = (param) => param.split(' ').map(item => item[0].toUpperCase() + item.slice(1)).join(' ')
+    console.log(test1('css html javascript'))
+    //or
+    // const test = (param) => param.replace(/\b[a-z]/gi,(item) => item[0].toUpperCase())
+    // console.log(test('mesto is software worker'))
+
+    //array
+    const test2 = (param) => param.map(item => item[0].toUpperCase() + item.slice(1))
+    console.log(test2(['css', 'html']))
+
+    //array chunk
+    const test3 = (param) => param.flat().map(item => item[0].toUpperCase() + item.slice(1))
+    console.log(test3([['css', 'html'], ['javascript', 'python']]))
+  </script>
+</body>
+
+</html>

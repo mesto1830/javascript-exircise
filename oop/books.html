@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Books {
+      constructor(name, price) {
+        this.name = name
+        this.price = price
+      }
+    }
+
+    const book_list = [
+      { name: 'ada', price: 30 },
+      { name: 'ada2', price: 20 },
+      { name: 'ada3', price: 40 },
+      { name: 'ada4', price: 30 }
+    ]
+
+    const get_books = []
+    for (const item of book_list) {
+      get_books.push(new Books(item.name, item.price))
+    }
+
+    localStorage.setItem('books', JSON.stringify(get_books))
+    console.log(JSON.parse(localStorage.getItem('books')))
+  </script>
+</body>
+
+</html>

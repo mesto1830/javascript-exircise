@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #tual {
+        width: 100%;
+        height: 100vh;
+        border: 1px solid #ccc;
+        position: relative;
+      }
+      #file_label {
+        display: block;
+        position: absolute;
+        background: transparent;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tual">
+      <label for="file" id="file_label">
+        <input
+          type="file"
+          accept="image/*"
+          id="file"
+          name="image"
+          hidden,
+          multiple
+        />
+      </label>
+    </div>
+    <script>
+      let id = 0;
+      let loadFile = function (image) {
+        id++;
+        let img = document.createElement("img");
+        img.setAttribute("id", id);
+        img.setAttribute("style", "width:100px;heigh:100px;");
+        img.src = URL.createObjectURL(image);
+        document.getElementById("tual").append(img);
+      };
+  
+      
+      document.getElementById('file_label').addEventListener("click", (e) => {
+        e.preventDefault();
+      });
+      document.getElementById('file_label').addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+      document.getElementById('file_label').addEventListener("drop", (e) => {
+        e.preventDefault();
+        loadFile(e.dataTransfer.files[0]);
+      });
+    </script>
+  </body>
+</html>

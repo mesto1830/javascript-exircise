@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Factory Pattern</h2>
+  <script>
+    //factory Developer
+    function Developer(name){
+      this.name = name
+      this.type = 'Developer'
+    }
+
+    //factory Tester
+    function Tester(type){
+      this.type = type
+      this.type = 'Tester'
+    }
+
+    //factory Employee
+    function Employee(){
+      this.create = (name, type) => {
+        switch (type) {
+          case 1:
+            return new Developer(name)
+            break;
+          case 2:
+            return new Tester(name)
+            break;
+          default:
+            break;
+        }
+      }
+    }
+    function message(){
+      console.log(`Hi, Iam ${this.name} and I am a ${this.type}`)
+    }
+    const emp = new Employee()
+    const employees = []
+    employees.push(emp.create('Mesto',1))
+    employees.push(emp.create('Deniz',2))
+
+    employees.forEach(item => {
+      message.call(item)
+    });
+  </script>
+</body>
+</html>

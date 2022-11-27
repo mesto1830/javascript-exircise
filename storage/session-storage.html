@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2 id="title">Sessionstorage</h2>
+  <button id="set">Set SessionStorage</button>
+  <button id="get">Get SessionStorage</button>
+  <button id="del">Delete Manually SessionStorage Or Close Browser Tab</button>
+  <button id="delAll">Delete Manually All SessionStorage Or Close Browser Tab</button>
+
+  <button id="setJson">Set SessionStorage With Json Data</button>
+  <button id="getJson">Get SessionStorage With Json Data</button>
+<!-- script side----------------------------- -->
+  <script>
+    document.getElementById('set').addEventListener('click',()=>{
+      sessionStorage.setItem('auth','mesto')
+    })
+    document.getElementById('get').addEventListener('click',()=>{
+      alert(sessionStorage.getItem('auth'))
+    })
+    document.getElementById('del').addEventListener('click',()=>{
+      sessionStorage.removeItem('auth')
+    })
+    document.getElementById('delAll').addEventListener('click',()=>{
+      sessionStorage.clear()
+    })
+
+     //json data
+     let users = [
+      {name:'Mesto',salery:3000},
+      {name:'Deniz',salery:4000},
+      {name:'Faruk',salery:5000}
+    ]
+    document.getElementById('setJson').addEventListener('click',()=>{
+      sessionStorage.setItem('users', JSON.stringify(users))
+    })
+    document.getElementById('getJson').addEventListener('click',()=>{
+      console.log(JSON.parse(sessionStorage.getItem('users')))
+    })
+  </script>
+</body>
+</html>

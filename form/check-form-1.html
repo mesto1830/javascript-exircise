@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        margin-left: 20px;
+      }
+      .inputs {
+        border: 2px solid #ccc;
+        min-height: 30px;
+        border-radius: 3px;
+        padding-left: 5px;
+        margin: 5px 0;
+      }
+      .errors{
+        color: red;
+        margin: 3px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Check Form Inputs With Regex</h1>
+    <form>
+      <input type="text" id="name" class="inputs" placeholder="Name" />
+      <label for = "name" class="errors" id="name_error"></label>
+      <input type="email" id="email" class="inputs" placeholder="email" />
+      <label for = "email" class="errors" id="email_error"></label>
+      <input type="phone" id="phone" class="inputs" placeholder="phone" />
+      <label for = "phone" class="errors" id="phone_error"></label>
+      <input type="text" id="password" class="inputs" placeholder="password" />
+      <label for = "password" class="errors" id="password_error"></label>
+    </form>
+    <script>
+
+      //with blur
+      const pattern = [
+        {name: /^.{1,50}[a-z0-9]$/, message: 'Ad alani en az 2 karekter olmalidir.'},
+        {email: /([^ ]+)@([^ ]+)\.([a-z]{2,3})(\.[a-z]{2,3})?/, message: 'Email formati uygun degil.'},
+        // email: /(^[^ ]{2,50})@([^ ]{2,30})\.([a-z]{2,3})(\.[a-z]{2,3})?/, //with maxlength
+        {phone: /^.{9}\d$/, message: 'Telefon alani en az 10 karekter ve rakam olmalidir.'},
+        {password:/^.{5,50}\w$/, message: 'Sifre alani en az 6 karekter olmalidir.'}
+      ]
+      const validate = (regex, field, id, index) => {
+        document.getElementById(id+'_error').innerText = ''
+        if (!field.value.match(regex)) {
+          document.getElementById(id+'_error').innerText = pattern[index].message
+        }
+      }
+      document.querySelectorAll('.inputs').forEach((item, index) => {
+        item.addEventListener('keyup', (e) => {
+          validate(pattern[index][e.target.id], e.target, e.target.id, index)
+        })
+      })
+    </script>
+  </body>
+</html>

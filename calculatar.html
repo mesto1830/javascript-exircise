@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const ope = prompt('Select a operator(+ - * /)')
+    const num1 = parseInt(prompt('Please enter the first number!'))
+    const num2 = parseInt(prompt('Please enter the second number!'))
+    let total = 0
+    switch (ope) {
+      case '+':
+        total = num1 + num2
+        document.write(total)
+        break;
+      case '-':
+        total = num1 - num2
+        document.write(total)
+        break;
+      case '*':
+        total = num1 * num2
+        document.write(total)
+        break;
+      case ope == '/':
+        total = num1 / num2
+        document.write(total)
+        break;
+      default:
+        document.write(total)
+        break;
+    }
+  </script>
+</body>
+</html>

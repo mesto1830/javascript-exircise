@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .new-node {
+      width: 50px;
+      height: 50px;
+      border-radius: 30px;
+      position: absolute;
+      z-index: 9;
+      background-color: cornflowerblue;
+      text-align: center;
+      border: 1px solid cornflowerblue;
+      top: 20px;
+      left: 20px;
+      cursor: move;
+      text-align: center;
+      line-height: 50px;
+      vertical-align: middle;
+      color: #fff;
+    }
+  </style>
+</head>
+<body style="position: relative;">
+  
+  <script>
+    //add items
+    let num = 1
+    document.addEventListener('dblclick', (e) => {
+      let t = document.createElement('div')
+      t.innerText = num++
+      t.classList.add('new-node')
+      t.style.top = e.clientY+'px'
+      t.style.left = e.clientX+'px'
+      t.draggable = true
+      t.addEventListener('drag', (e) => {
+        setItemPosition(e)
+      })
+      document.body.appendChild(t)
+    })
+
+    //give permission to drag on document
+    document.addEventListener('dragover', (e) => {
+      e.preventDefault()
+    })
+    
+    //set new position of each item
+    const setItemPosition = (param) => {
+      param.target.style.top = param.pageY+'px'
+      param.target.style.left = param.pageX+'px'
+    }
+
+  </script>
+</body>
+</html>

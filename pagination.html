@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .title {
+        margin: 50px auto;
+        text-align: center;
+      }
+      #container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 800px;
+        height: auto;
+        margin: 0 auto;
+      }
+      .users_list {
+        display: flex;
+        align-items: center;
+        min-height: 40px;
+        width: 100%;
+      }
+      #pnc {
+        display: flex;
+        margin-top: 20px;
+      }
+      .pnc_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ccc;
+        margin: 0 2px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .pnc_item:hover {
+        background-color: lightseagreen;
+        color: #fff;
+      }
+      .active{background-color: lightseagreen;color:#fff;}
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Pagination</h1>
+    <div id="container">
+      <div id="list"></div>
+      <div id="pnc"></div>
+    </div>
+    <script>
+      const Users = [
+        {
+          index: 0,
+          name: "Aurelia Gonzales",
+          isActive: false,
+          registered: "2015-02-11T04:22:39+0000",
+          age: 20,
+        },
+        {
+          index: 1,
+          name: "Kitty Snow",
+          isActive: false,
+          registered: "2018-01-23T04:46:15+0000",
+          age: 38,
+        },
+        {
+          index: 2,
+          name: "Hays Wise",
+          isActive: false,
+          registered: "2015-02-23T10:22:15+0000",
+          age: 24,
+        },
+        {
+          index: 3,
+          name: "Karyn Rhodes",
+          isActive: true,
+          registered: "2014-03-11T03:02:33+0000",
+          age: 39,
+        },
+        {
+          index: 4,
+          name: "Alison Farmer",
+          isActive: false,
+          registered: "2018-01-22T10:05:45+0000",
+          age: 33,
+        },
+        {
+          index: 5,
+          name: "Grace Larson",
+          isActive: true,
+          registered: "2014-04-20T11:37:23+0000",
+          age: 20,
+        },
+        {
+          index: 6,
+          name: "Carmella Morse",
+          isActive: false,
+          registered: "2014-06-08T11:20:22+0000",
+          age: 39,
+        },
+        {
+          index: 7,
+          name: "Anastasia Blake",
+          isActive: true,
+          registered: "2016-07-01T02:32:46+0000",
+          age: 40,
+        },
+        {
+          index: 8,
+          name: "Dale Holman",
+          isActive: false,
+          registered: "2014-07-11T09:08:36+0000",
+          age: 22,
+        },
+        {
+          index: 9,
+          name: "Tina Barnett",
+          isActive: true,
+          registered: "2015-03-09T11:16:38+0000",
+          age: 39,
+        },
+        {
+          index: 10,
+          name: "Belinda Zimmerman",
+          isActive: true,
+          registered: "2015-11-19T02:18:09+0000",
+          age: 34,
+        },
+        {
+          index: 11,
+          name: "Morrison Sheppard",
+          isActive: false,
+          registered: "2014-07-23T04:46:35+0000",
+          age: 34,
+        },
+        {
+          index: 12,
+          name: "Le Farley",
+          isActive: false,
+          registered: "2014-11-24T07:41:12+0000",
+          age: 36,
+        },
+        {
+          index: 13,
+          name: "Sharon Grimes",
+          isActive: true,
+          registered: "2017-12-22T01:04:16+0000",
+          age: 28,
+        },
+        {
+          index: 14,
+          name: "Wendy Sampson",
+          isActive: true,
+          registered: "2017-03-28T04:46:20+0000",
+          age: 20,
+        },
+        {
+          index: 15,
+          name: "Newman Rodriquez",
+          isActive: true,
+          registered: "2017-09-19T11:25:18+0000",
+          age: 29,
+        },
+        {
+          index: 16,
+          name: "Santana Preston",
+          isActive: false,
+          registered: "2014-05-23T12:41:39+0000",
+          age: 40,
+        },
+        {
+          index: 17,
+          name: "Lupe Barry",
+          isActive: false,
+          registered: "2014-01-06T02:04:30+0000",
+          age: 25,
+        },
+        {
+          index: 18,
+          name: "Mable Pratt",
+          isActive: true,
+          registered: "2016-04-22T11:00:05+0000",
+          age: 32,
+        },
+        {
+          index: 19,
+          name: "Mcguire Vincent",
+          isActive: false,
+          registered: "2017-01-28T01:53:06+0000",
+          age: 24,
+        },
+        {
+          index: 20,
+          name: "Franco Ochoa",
+          isActive: false,
+          registered: "2016-08-02T04:15:34+0000",
+          age: 35,
+        },
+        {
+          index: 21,
+          name: "Leila Cervantes",
+          isActive: false,
+          registered: "2015-04-20T12:59:43+0000",
+          age: 40,
+        },
+        {
+          index: 22,
+          name: "Agnes West",
+          isActive: true,
+          registered: "2014-03-26T01:38:01+0000",
+          age: 39,
+        },
+        {
+          index: 23,
+          name: "Bowman Whitaker",
+          isActive: true,
+          registered: "2014-06-28T04:39:11+0000",
+          age: 21,
+        },
+        {
+          index: 24,
+          name: "Roseann Conrad",
+          isActive: false,
+          registered: "2018-02-24T12:39:03+0000",
+          age: 34,
+        },
+        {
+          index: 25,
+          name: "Bryant Thornton",
+          isActive: true,
+          registered: "2016-07-02T06:12:47+0000",
+          age: 37,
+        },
+        {
+          index: 26,
+          name: "Maldonado Osborne",
+          isActive: true,
+          registered: "2015-09-10T01:38:41+0000",
+          age: 31,
+        },
+        {
+          index: 27,
+          name: "Herman David",
+          isActive: true,
+          registered: "2018-02-22T12:21:33+0000",
+          age: 33,
+        },
+        {
+          index: 28,
+          name: "Berta Case",
+          isActive: true,
+          registered: "2014-01-29T09:09:27+0000",
+          age: 23,
+        },
+        {
+          index: 29,
+          name: "Abby Wallace",
+          isActive: false,
+          registered: "2016-07-25T06:30:13+0000",
+          age: 40,
+        },
+        {
+          index: 30,
+          name: "Hahn Pope",
+          isActive: false,
+          registered: "2014-08-21T11:37:18+0000",
+          age: 21,
+        },
+        {
+          index: 31,
+          name: "Charlotte Larsen",
+          isActive: false,
+          registered: "2015-12-10T02:55:22+0000",
+          age: 26,
+        },
+        {
+          index: 32,
+          name: "Curtis Bruce",
+          isActive: false,
+          registered: "2014-07-10T05:38:35+0000",
+          age: 39,
+        },
+        {
+          index: 33,
+          name: "Livingston Huber",
+          isActive: true,
+          registered: "2016-07-25T12:06:06+0000",
+          age: 40,
+        },
+        {
+          index: 34,
+          name: "Frances Camacho",
+          isActive: true,
+          registered: "2018-02-16T06:34:26+0000",
+          age: 24,
+        },
+        {
+          index: 35,
+          name: "Merle Hall",
+          isActive: false,
+          registered: "2016-06-09T06:09:14+0000",
+          age: 24,
+        },
+        {
+          index: 36,
+          name: "Alejandra Collins",
+          isActive: false,
+          registered: "2014-12-10T07:02:24+0000",
+          age: 23,
+        },
+        {
+          index: 37,
+          name: "Combs Graham",
+          isActive: true,
+          registered: "2015-06-24T10:30:08+0000",
+          age: 20,
+        },
+        {
+          index: 38,
+          name: "Elliott Phelps",
+          isActive: true,
+          registered: "2016-06-29T08:57:29+0000",
+          age: 32,
+        },
+        {
+          index: 39,
+          name: "Latasha Bailey",
+          isActive: true,
+          registered: "2016-03-03T07:27:59+0000",
+          age: 25,
+        },
+      ];
+
+      let current_page = 1;
+      let rows = 5;
+      let pagination_length = Math.ceil(Users.length/rows)
+
+      let list = document.getElementById("list");
+      let pagination = document.getElementById("pnc");
+
+      const displayUsers = (items, list, per_page, page) => {
+        list.innerHTML = "";
+        page--;
+
+        let start = per_page * page;
+        let end = start + per_page;
+        let paginationItem = items.slice(start, end);
+
+        //create user list
+        for (let i = 0; i < paginationItem.length; i++) {
+          let usersList = document.createElement("div");
+          usersList.classList.add("users_list");
+          usersList.innerText = paginationItem[i]["index"] + ' ' + paginationItem[i]["name"] + " " + paginationItem[i]["age"];
+          list.appendChild(usersList);
+        }
+      };
+
+      displayUsers(Users, list, rows, current_page);
+
+      //add pagination
+      for (let i = 1; i <= pagination_length; i++) {
+        let pageNumber = document.createElement("span");
+        pageNumber.innerText = i;
+        pageNumber.classList.add("pnc_item");
+        document.getElementById("pnc").appendChild(pageNumber);
+      }
+      //change pages
+      document.querySelectorAll(".pnc_item").forEach(item => {
+        item.addEventListener("click", (e) => {
+          list.innerHTML = ''
+          current_page = item.innerText
+          displayUsers(Users, list, rows, current_page);
+          //active class
+          document.querySelectorAll(".pnc_item").forEach(item => {
+            item.classList.remove('active')
+          })
+          e.target.classList.add('active')
+        });
+      });
+    </script>
+  </body>
+</html>

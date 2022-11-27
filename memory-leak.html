@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //memory leak accur when garbage collecter not working
+    // first memory leak 
+    // let arr = []
+    // for (let i = 5; i > 1; i++) {
+    //   arr.push(i-1)
+    // }
+
+    //second memory leak is global object
+    // var a = 1
+
+    //third is setinterval
+    // setInterval(() => {
+    //   console.log('hello')
+    // }, 1000);
+  </script>
+</body>
+</html>

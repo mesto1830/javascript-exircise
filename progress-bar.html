@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+#progress-container{
+  width: 400px;
+  height: 10px;
+  border-radius: 20px;
+  background-color: #f1f1f1;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
+}
+#progress-bar{
+  width: 0;
+  height: 100%;
+  background-color: purple;
+  transition: all 1s linear;
+}
+h1,#finished{
+  width: fit-content;
+  margin: 0 auto;
+}
+#finished{display: none;}
+  </style>
+</head>
+<body>
+  <h1>Progrss-Bar</h1>
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+  <h3 id="finished">Finished</h3>
+
+  <script>
+    let pw = 0
+    let timePeriod = 8
+    const checkTime = setInterval(() => {
+      pw+=(100/timePeriod)
+      document.getElementById('progress-bar').style.width = pw + '%'
+      if(pw == 100){
+        clearInterval(checkTime)
+        document.getElementById('finished').style.display = 'block'
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

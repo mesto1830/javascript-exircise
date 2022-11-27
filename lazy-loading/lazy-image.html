@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 600px;
+        text-align: center;
+      }
+      .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 200px;
+      }
+      img {
+        border: 1px solid #fff;
+        width: 300px;
+        height: 200px;
+        margin: 50px 0;
+        transition: all 5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Intersection Lazy Loading</h2>
+    <div class="container">
+      <img data-src="../astroboy.png" alt="" />
+      <img data-src="../astroboy.png" alt="" />
+      <img data-src="../astroboy.png" alt="" />
+      <img data-src="../astroboy.png" alt="" />
+      <img data-src="../astroboy.png" alt="" />
+      <img data-src="../astroboy.png" alt="" />
+      <img data-src="../astroboy.png" alt="" />
+    </div>
+
+    <script>
+      const images = document.querySelectorAll("[data-src]");
+
+      const preLoadImages = (param) => {
+        const src = param.getAttribute('data-src')
+        if(!src){
+          return
+        }
+        param.src = src
+      };
+
+      const imageOptions = {
+        threshold:1,
+        rootMargins:'0px 0px -100px 0px'
+      }
+
+      const imgObserver = new IntersectionObserver((entries, imgObserver) => {
+        entries.forEach(entry => {
+          if(!entry.isIntersecting){
+            return
+          } else {
+            preLoadImages(entry.target)
+            imgObserver.unobserve(entry.target)
+          }
+        })
+      }, imageOptions)
+
+      images.forEach(item => {
+        imgObserver.observe(item)
+      })
+    </script>
+  </body>
+</html>

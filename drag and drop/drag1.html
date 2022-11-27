@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body{
+    position: relative;
+  }
+.myDiv {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  position: absolute;
+  z-index: 9;
+  background-color: cornflowerblue;
+  text-align: center;
+  border: 1px solid cornflowerblue;
+  top: 20px;
+  left: 20px;
+  cursor: move;
+  text-align: center;
+  line-height: 50px;
+  vertical-align: middle;
+  color: #fff;
+}
+
+</style>
+<body>
+<div class="myDiv">Div 1</div>
+<div class="myDiv">Div 2</div>
+<div class="myDiv">Div 3</div>
+
+<script>
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0
+  document.querySelectorAll('.myDiv').forEach(item => {
+    item.addEventListener('mousedown', (el) => {
+      el = el || window.event;
+      el.preventDefault()
+      pos3 = el.clientX;
+      pos4 = el.clientY;
+
+      document.onmousemove = (e) => {
+        e = e || window.event
+        e.preventDefault()
+        pos1 = pos3 - e.clientX
+        pos2 = pos4 - e.clientY
+        pos3 = e.clientX
+        pos4 = e.clientY
+
+        el.target.style.top = (el.target.offsetTop - pos2) + "px"
+        el.target.style.left = (el.target.offsetLeft - pos1) + "px"
+      }
+      
+      document.onmouseup = () => {
+        document.onmouseup = null
+        document.onmousemove = null
+      }
+      
+    })
+    
+  })
+
+
+</script>
+
+</body>
+</html>

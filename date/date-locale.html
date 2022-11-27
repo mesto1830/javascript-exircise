@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <select name="" id="months"></select>
+    <select name="" id="days"></select>
+    <script>
+      //local date
+      let ld = new Date();
+      let months = [
+        "Ocak",
+        "Şubat",
+        "Mart",
+        "Nisan",
+        "Mayıs",
+        "Haziran",
+        "Temmuz",
+        "Agustos",
+        "Eylül",
+        "Ekim",
+        "Kasım",
+        "Aralık",
+      ];
+      let days = ["Paz", "Pazs", "Salı", "Çar", "Per", "Cum", "Cums"];
+      console.log(
+        months[ld.getMonth() + 1] +
+          "-" +
+          days[ld.getDay()] +
+          "-" +
+          ld.getFullYear()
+      );
+
+      for (const item of months) {
+        document.getElementById("months").innerHTML += `<option>${item}</option>`;
+      }
+
+      document.getElementById("months").addEventListener("change", () => {
+        document.getElementById("days").innerHTML = ''
+        for (const item of days) {
+          document.getElementById("days").innerHTML += `<option>${item}</option>`;
+        }
+      });
+    </script>
+  </body>
+</html>

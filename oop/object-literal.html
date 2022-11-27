@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      const person = {
+        name: "Mesto",
+        lastName: "Kaya",
+        langs:['Html','Css','Javascript'],
+        fullName() {
+          return this.name + " " + this.lastName;
+        },
+      };
+      console.log(Object.keys(person));
+      console.log(Object.values(person));
+      console.log(person.fullName());
+
+      person.name = "Deniz";
+      delete person.lastName;
+      console.log(person.fullName());
+
+      console.log(Object.keys(person));
+      console.log(Object.values(person));
+
+      for (const item in person) {
+        console.log(item);
+      }
+
+      const colors = {
+        red: "red",
+        blue: "blue",
+      };
+      colors.green = "green";
+      colors['orange'] = "orange";
+      console.log(colors);
+
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let users = [
+      { id: 1, name: 'Mesto' },
+      { id: 2, name: 'Sami' },
+      { id: 3, name: 'Hamit' }
+    ]
+    //first run addUser then userList
+    userlist = () => {
+      console.log(users)
+    }
+    addUser = (id, name, userlist) => {
+      users.push({ id: id, name: name })
+      userlist()
+    }
+    addUser(4, 'Selim', userlist)
+  </script>
+</body>
+
+</html>

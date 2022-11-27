@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2 id="title">Api Fetch Async Await Request</h2>
+<!-- script side----------------------------- -->
+<script>
+  //sample 1 fetch async await
+      (async function fetchApi () {
+        let res = await fetch('../soccer.json')
+        let data = await res.json()
+        data[0].results.forEach(item => {
+          console.log(item.home.name)
+        })
+      })()
+  //sample 1 fetch async await then
+      async function fetchApithen (url) {
+        let res = await fetch(url)
+        let data = await res.json()
+        console.warn('Async with then -------------------------')
+        return data
+      }
+      fetchApithen('../soccer.json')
+      .then(result =>{
+        result[0].results.forEach(item => {
+          console.log(item.home.name)
+        })
+      })
+      .catch(err => console.log(err))
+    </script>
+</body>
+</html>

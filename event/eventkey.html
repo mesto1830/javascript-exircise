@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Keyup</h1>
+  <input placeholder="Type letter!" id="input" size="20">
+  <h2 id="key" class="red"></h2>
+  <h2 id="code" class="green"></h2>
+  <h2 id="keycode" class="blue"></h2>
+<!-- script side----------------------------- -->
+  <style>
+    .red{color: red;}
+    .green{color: green;}
+    .blue{color: blue;}
+  </style>
+  <script>
+    document.getElementById('input').addEventListener('keyup', (event) =>{
+      document.getElementById('key').textContent = `Key = ${event.key}`;
+      document.getElementById('code').textContent = `Code = ${event.code}`;
+      document.getElementById('keycode').textContent = `KeyCode = ${event.keyCode}`;
+      if (event.keyCode === 13) {
+        alert('Hello')
+      }
+    })
+  </script>
+</body>
+</html>

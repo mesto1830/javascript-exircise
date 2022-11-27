@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let array1 = ["node", "vue", "mongo", "javascript"];
+
+      //pass array as paramater
+      // let test = (a, b, c) => {
+      //   console.log(a, b, c);
+      // };
+      // test(...array1);
+
+      //pass array as rest (dynamic params count)
+      // let test = (...args) => {
+      //   console.log(args);
+      // };
+      // test(...array1);
+
+      //as number
+      // let num = [1,2,3,4,5]
+      // console.log(Math.max(...num))
+
+      //es9 2018
+      // const animals = {
+      //   tiger:30,
+      //   lion:50,
+      //   bear:45
+      // }
+
+      // const {tiger, ...rest} = animals
+      // console.log(tiger)
+      // console.log(rest)
+
+      //spread as object literal
+      const Children = ['Bidik','Helin','Ilayda']
+      const Person = {
+        name:'Mustafa',
+        lastname:'Kaya',
+        ...Children
+      }
+      console.log(Person)
+
+      let array1 = ['node', 'vue', 'mongo']
+    let array2 = ['vuetify', 'mysql', 'nuxt']
+
+
+    // concat all
+    console.log(...array1, ...array2)
+
+    // concat all and with new values
+    let array3 = [...array1, ...array2, 'javascript', 'mongoose', 'pm2']
+    console.log(array3)
+
+    // pass array as paramater
+    let test = (a, b, c) => {
+      console.log(a, b, c)
+    }
+    test(...array1)
+
+    //as number
+    let num = [1, 2, 3, 4, 5]
+    console.log(Math.max(...num))
+    </script>
+  </body>
+</html>

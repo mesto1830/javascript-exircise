@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+  <style>
+    btn {
+      padding: 12px 50px;
+      border: none;
+      background-color: rgb(91,234,208);
+      color: #333;
+      cursor: pointer;
+      display: inline-block;
+     }
+   </style>
+</head>
+<body>
+  <h2>Pdf Generator</h2>
+
+  <button class="btn" id="btn">Pdf</button>
+  <div id="pdf-area">
+    <h2 id="name">Mustafa Kaya</h2>
+    <img src="1.png" alt="" width="200" height="150">
+  </div>
+  <script>
+    const pdf = new jsPDF()
+    let btn = document.getElementById('btn')
+    btn.addEventListener('click', () => {
+      pdf.text(20, 20, document.getElementById('name').innerHTML)
+      var img = new Image()
+      img.src = '1.png'
+      pdf.addImage(img, 'png', 10, 20, 12, 15)
+      pdf.save()
+    })
+  </script>
+</body>
+</html>

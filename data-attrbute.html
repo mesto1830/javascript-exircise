@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div::before{
+      content:attr(data-color) " ";
+    }
+    div[data-color='Red']{
+      color:red;
+    }
+  </style>
+</head>
+<body>
+  <div data-color="Red">Audio</div>
+  <div data-color="Blue">BMV</div>
+  <div data-color="Green">Wolkswagen</div>
+  <script>
+    const data = document.querySelectorAll('[data-color]')
+    data.forEach(item => {
+      console.log(item.dataset.color)
+      setTimeout(() => {
+        item.dataset.color === 'Red' ? console.log(item.textContent) : null
+      }, 0);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let list1 = [
+        { id: 1, name: "Mustafa", age: 40, city: "Urfa", salary:3000}
+      ];
+      let list2 = [
+        { id: 1, name: "Mustafa", age: 40, city: "Urfa" }
+      ];
+      let list3 = [
+        { id: 1, name: "Mustafa", age: 40, city: "Urfa", salary:4000 }
+      ];
+      // every
+      const getEqualObject = (a,b) => Object.keys(a).every(item => b[item])
+      console.log(getEqualObject(list1[0], list2[0]))
+      console.log(getEqualObject(list1[0], list3[0]))
+    </script>
+  </body>
+</html>

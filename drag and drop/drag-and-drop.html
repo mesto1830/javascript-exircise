@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{position: relative;}
+    .point{
+      width: max-content;
+      height: max-content;
+      padding: 5px 20px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      background-color: cornflowerblue;
+      color: #fff;
+      position: absolute;
+      top:0;
+      left:0;
+      text-align: center;
+      line-height: 50px;
+      cursor: move;
+    }
+  </style>
+</head>
+<body>
+  <div id="point" class="point"></div>
+  <script>
+    // const tar = document.getElementById('point')
+    // document.onmousemove = (e) => {
+    //   e.preventDefault()
+    //   tar.setAttribute('style', 'transform:rotate('+e.clientX+'deg)')
+    //   tar.style.top = e.clientY+'px'
+    //   tar.style.left = e.clientX+'px'
+    //   tar.innerText = e.clientY + ' ' + e.clientX
+    // }
+    
+    const tar = document.getElementById('point')
+    tar.onmousedown = (el) => {
+      document.onmousemove = (e) => {
+        tar.style.top = (e.clientY - el.offsetY)+'px'
+        tar.style.left = (e.clientX-el.offsetX)+'px'
+        tar.innerText = tar.style.top +' '+ tar.style.left
+        // document.onmouseup = () => {
+        //   document.onmousemove = null
+        //   document.onmouseup = null
+        // }
+      }
+      //if you want move with doubleclick put this function in onmousemove block
+      document.onmouseup = () => {
+        document.onmousemove = null
+        document.onmouseup = null
+      }
+    }
+  </script>
+</body>
+</html>

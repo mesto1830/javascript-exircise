@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Look on the console</h2>
+    <script>
+      //await return hiding promise
+      const fetchApi = async () => {
+        try {
+          let res = await fetch("../soccer.json");
+          let data = await res.json();
+          data[0].results.forEach((item) => {
+            if (item.id === "84574997") {
+              console.log(item.home.name);
+            }
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchApi();
+
+      //es8
+      const urls = [
+        "https://jsonplaceholder.typicode.com/users",
+        "https://jsonplaceholder.typicode.com/todos",
+        "https://jsonplaceholder.typicode.com/albums",
+      ];
+      // const fetchAll = async() => {
+      //   const[users, todos, albums] = await Promise.all(urls.map(url =>
+      //     fetch(url).then(res => res.json())
+      //   ))
+      //   console.log(users)
+      //   console.log(todos)
+      //   console.log(albums)
+      // }
+      // fetchAll()
+
+      //es9
+      const getData = async function () {
+        const arrayPromises = urls.map((url) => fetch(url));
+        for await (let item of arrayPromises) {
+          const final = await item.json();
+          console.log(final);
+        }
+      };
+      getData();
+
+      const promisify = (item, delay) =>
+        new Promise((resolve) => setTimeout(() => resolve(item), delay));
+
+      const a = () => promisify("a", 100);
+      const b = () => promisify("b", 5000);
+      const c = () => promisify("c", 3000);
+
+      async function parallel() {
+        const promises = [a(), b(), c()];
+        const [output1, output2, output3] = await Promise.all(promises);
+        return `prallel is done: ${output1} ${output2} ${output3}`;
+      }
+
+      async function race() {
+        const promises = [a(), b(), c()];
+        const output1 = await Promise.race(promises);
+        return `race is done: ${output1}`;
+      }
+
+      async function sequence() {
+        const output1 = await a();
+        const output2 = await b();
+        const output3 = await c();
+        return `sequence is done ${output1} ${output2} ${output3}`;
+      }
+
+      sequence().then(console.log);
+      parallel().then(console.log);
+      race().then(console.log);
+    </script>
+  </body>
+</html>

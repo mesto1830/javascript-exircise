@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body { background-color:#000; }
+    .left {
+      transform: scaleX(-1);
+    }
+    .right {
+      transform: scaleX(1);
+    }
+    #bee {
+      position:absolute;
+      transition: transform .1s
+      }
+  </style>
+</head>
+<body>
+  <div id="bee"> 
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/160783/astroboy.png"   />
+  </div>
+  <script>
+    let bee = document.getElementById("bee")
+		let beepos = {x:0, y:0}
+		let mouse = {x:0, y:0}
+
+		function getMouse(e){
+      mouse.x = e.pageX
+			mouse.y = e.pageY
+
+      if(mouse.x > beepos.x){
+        bee.setAttribute("class", "right")
+      } else {
+        bee.setAttribute("class", "left")
+      }
+
+      bee.style.left = mouse.x + "px"
+      bee.style.top = mouse.y + "px"
+
+      beepos.x = mouse.x
+      beepos.y = mouse.y
+		}
+    document.addEventListener("mousemove", getMouse)
+  </script>
+</body>
+</html>

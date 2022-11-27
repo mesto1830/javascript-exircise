@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="./images/img1.jpg" alt="" id="img">
+  <img src="" alt="" id="img2">
+  <br>
+  <input type="button" name="" id="screenshot-button" value="Screenshot">
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+  <script>
+    // const saveImage = async(param) => {
+    //     const result = await fetch('/admin/saveimage', {
+    //         headers: {
+    //             Accept: 'application/json',
+    //             'Content-Type': 'application/json',
+    //             'X-CSRF-TOKEN':token
+    //         },
+    //         method:'Post',
+    //         body:JSON.stringify({
+    //             file: param,
+    //             fileName:document.getElementById('add-page-count').value,
+    //             folderName:document.getElementById('magazine-name').innerText,
+    //             id:document.getElementById('magazine-id').value
+    //         })
+    //     })
+    // }
+    document.getElementById('screenshot-button').addEventListener('click',() => {
+        window.scrollTo(0,0)
+        html2canvas(document.getElementById('img'),{
+            allowTaint: true,
+            useCORS: true,
+        }).then((canvas) => {
+          document.getElementById('img2').src = canvas.toDataURL()
+          // saveImage(canvas.toDataURL())//send to server to save
+        })
+    })
+  </script>
+</body>
+</html>

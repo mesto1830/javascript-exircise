@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    //rest operator is dynamic prameters
+    let one =''
+    let two =''
+    let three =''
+    let test = (...args) => {
+      one = args[0]
+      two = args[1]
+      three = args[2][3].name
+    }
+    test(1,'hello',[1,2,3,{name:'Mesto'}])
+    console.log(one, two, three)
+
+
+    //second example
+    const test2 = (...args) => console.log(args[0])
+    test2('hello','hi')
+  </script>
+</body>
+</html>

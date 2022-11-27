@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head class="head-class">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="main-title">Document</title>
+</head>
+
+<body class="main second">
+  <h1 class="dom" id="dom">Dom</h1>
+
+  <!-- script side----------------------------- -->
+  <script>
+    //console.log(this.document)
+    console.log(document)
+    console.log('-----------------------------------')
+    console.log(document.all)
+    console.log('-----------------------------------')
+    console.log(document.all.length)
+    console.log('-----------------------------------')
+    console.log(document.all[4])
+    console.log('-----------------------------------')
+    console.log(document.all[4].getAttribute('id'))
+    console.log('-----------------------------------')
+    console.log(document.all[document.all.length - 1])
+    console.log('-----------------------------------')
+    console.log(document.head)
+    console.log('-----------------------------------')
+    console.log(document.head.className)
+    console.log('-----------------------------------')
+    console.log(document.body)
+    console.log('-----------------------------------')
+    console.log(document.body.classList)
+    console.log('-----------------------------------')
+    console.log('Location' + ' ' + document.location)
+    console.log('Host' + ' ' + document.location.host)
+    console.log('Hostname' + ' ' + document.location.hostname)
+    console.log('Port' + ' ' + document.location.port)
+    console.log('Url' + ' ' + document.URL)
+    console.log('BaseUrl' + ' ' + document.baseURI)
+    console.log('Charset' + ' ' + document.charset)
+    console.log('-----------------------------------')
+    console.log('Node Name' + ' ' + document.getElementById("dom").nodeName)
+    console.log('-----------------------------------')
+    console.log('Node Value' + ' ' + document.getElementById("dom").childNodes[0].nodeValue)
+    console.log('-----------------------------------')
+
+    // let col = Array.from(document.all)//convert collaction to array
+    // col.forEach(item => {
+    //   console.log(item)
+    // })
+  </script>
+</body>
+
+</html>

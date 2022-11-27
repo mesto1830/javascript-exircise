@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #list{
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      width:200px;
+    }
+    .list{
+      border:1px solid #ccc;
+      border-radius:2px;
+      margin:3px 0;
+      padding:5px;
+    }
+    .new-class{color: red;}
+  </style>
+</head>
+<body>
+  <h2 id="title">Show Style</h2>
+  <button onclick="showStyle()">Show Style</button>
+
+  <script>
+  let showStyle = () => {
+    const ele = document.querySelector('button')
+    console.log('------------------------------------offset')
+    console.log('offsetWidth: ' + ele.offsetWidth)
+    console.log('offsetWidth: ' + ele.offsetWidth)
+    console.log('offsetHeight: ' + ele.offsetHeight)
+    console.log('offsetTop: ' + ele.offsetTop)
+    console.log('offsetTop: ' + ele.offsetLeft)
+
+    console.log('------------------------------------client')
+
+    console.log('clientWidth: ' + ele.clientWidth)
+    console.log('clientHeight: ' + ele.clientHeight)
+    console.log('clientTop: ' + ele.clientTop)
+    console.log('clientTop: ' + ele.clientLeft)
+
+   }
+  </script>
+</body>
+</html>
