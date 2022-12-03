@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="fd">Show</button>
+  <input type="file" name="" id="file">
+  <script>
+    document.getElementById('fd').onclick = () => {
+      const file = document.getElementById('file')
+      const fd = new FormData()
+      fd.append('name', file.files[0].name)
+      fd.append('size',file.files[0].size)
+      fd.append('file',file.files[0])
+      console.log(Array.from(fd))
+    }
+  </script>
+</body>
+</html>
