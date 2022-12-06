@@ -8,14 +8,10 @@
 </head>
 <body>
   <input type="file" id="real-btn">
-  <input type="button" id="custom-btn" value="Choose File">
-  <label for="" id="custom-btn-text">No file chosen</label>
+  <label for="real-btn">Choose a file</label>
+  <label  id="custom-btn-text">No chosen file</label>
 
   <script>
-    document.getElementById('custom-btn').addEventListener('click', () => {
-      document.getElementById('real-btn').click()
-    })
-
     document.getElementById('real-btn').addEventListener('change', (e) => {
       document.getElementById('custom-btn-text').innerText = e.target.value
     })

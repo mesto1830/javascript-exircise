@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Create Blob and Convert to Url</h2>
+  <button id="btn">Download Blob</button>
+  
+  <script>
+    //Both ways of making an URL of a blob are usable. But usually URL.createObjectURL(blob) is simpler and faster.
+    let link = document.createElement('a')
+    link.download = 'blob1.txt'
+    let blob = new Blob(['Hello Blob1!'], { type: 'text/plain' })
+    link.href = URL.createObjectURL(blob)
+    
+    document.getElementById('btn').onclick = () => {
+      link.click();
+      console.log(link.href)
+      URL.revokeObjectURL(link.href)
+    }
+  </script>
+</body>
+</html>

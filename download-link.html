@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">Download Blob</button>
+  <a download="blob2.txt" href="#" id="blob2" onclick="downloadBlob()">Download Blob2</a>
+  <script>
+    //with button
+    
+    document.getElementById('btn').onclick = () => {
+      let link = document.createElement('a')
+      link.download = 'blob1.txt'
+      let blob = new Blob(['Hello Blob1!'], { type: 'text/plain' })
+      link.href = URL.createObjectURL(blob)
+      link.click();
+      console.log(link.href)
+      URL.revokeObjectURL(link.href)
+    }
+
+    //with a tag
+    const downloadBlob = () => {
+      const testLink = document.getElementById('blob2')
+      let blob2 = new Blob(['Hello Blob2!'], { type: 'text/plain' })
+      testLink.href = URL.createObjectURL(blob2)
+      // testLink.click()//auto download without click
+      console.log(testLink.href)
+      setTimeout(() => {
+        URL.revokeObjectURL(testLink.href)
+      }, 500);
+      
+    }
+  </script>
+</body>
+</html>

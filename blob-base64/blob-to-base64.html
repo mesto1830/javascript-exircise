@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>Create Blob and Convert to Base64(Alternate the blob)</h2>
+  <button id="btn">Download Base64</button>
+  <script>
+    //Both ways of making an URL of a blob are usable. But usually URL.createObjectURL(blob) is simpler and faster.
+    document.getElementById('btn').onclick = () => {
+      let link = document.createElement('a')
+      link.download = 'Base64.txt'
+      let blob = new Blob(['Hello Base64!'], { type: 'text/plain' })
+
+      let reader = new FileReader()
+      reader.readAsDataURL(blob)
+      reader.onload = function () {
+        link.href = reader.result
+        link.click()
+        console.log(reader.result)
+      }
+    }
+  </script>
+</body>
+
+</html>
